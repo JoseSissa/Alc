@@ -22,8 +22,6 @@ const cssPlugins = [
     autoprefixer()
 ]
 
-//Caché bust - Limpiar
-gulp.task()
 
 gulp.task('html-min', ()=>{
 
