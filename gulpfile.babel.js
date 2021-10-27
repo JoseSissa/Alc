@@ -62,7 +62,7 @@ gulp.task('babel', ()=>{
 
 gulp.task('views', ()=>{
     return gulp
-        .src('./src/views/pages/*.pug')
+        .src('./src/views/*.pug')
         .pipe(pug({
             pretty: production ? false : true
         }))
@@ -92,7 +92,7 @@ gulp.task('imgmin', ()=>{
 
 gulp.task('default', ()=>{                                //Para que se ejecuten las tareas automáticamente.
     //gulp.watch("./src/*.html", gulp.series('html-min'))   //Se establece un vigilante para que detecte los cambios.
-    gulp.watch("./src/views/**/*.pug", gulp.series('views'))
+    gulp.watch("./src/views/*.pug", gulp.series('views'))
     gulp.watch("./src/css/*.css", gulp.series('styles'))  
     gulp.watch("./src/js/*.js", gulp.series('babel'))  
 });

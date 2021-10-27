@@ -1,6 +1,7 @@
 //Se invoca express
 const express =  require('express');
 const app = express();
+const path = require('path');
 
 //Se setea urlencoded para capturar los datos del formulario (para evitar errores).
 app.use(express.urlencoded({extended:false}));
@@ -15,7 +16,9 @@ app.use('/resources', express.static('public'));
 app.use('/resources', express.static(__dirname + '/public'));
 
 //Se establece el motor de plantillas
+app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'pug');
+app.use(express.static(__dirname + '/src'));
 
 //Invocamos al módulo de hashing para el password
 const bcryptjs = require('bcryptjs');
@@ -36,7 +39,7 @@ const connection = require('./database/connection');
 
 
 app.get('/', (req, res)=>{
-    res.render('index');
+    res.render('index')
 });
 
 app.listen(3000, (req, res)=>{
