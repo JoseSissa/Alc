@@ -1,7 +1,0 @@
-npm install --save-dev gulp-postcss cssnano autoprefixer --> Nos ayuda a minificar el css
-npm install postcss --save-dev --> Para solucionar el error: Error: Cannot find module 'postcss'
-
-Para utilizar autoprefixer hay dos opciones, añadir los navegadores a los 
-que se quiere dar el soporte al package.json ó hacerlo en un archivo separado:
-.browserslistrc
- 

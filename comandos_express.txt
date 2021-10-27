@@ -1,0 +1,2 @@
+Express y el entorno para el login:
+npm install express express-session mysql dotenv bcryptjs

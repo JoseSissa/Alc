@@ -25,5 +25,12 @@
     "gulp-terser": "^2.1.0",
     "postcss": "^8.3.11"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.2"
+  }
 }
