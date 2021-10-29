@@ -38,3 +38,76 @@ html(lang="en")
         //-             li: a(href="#") Item 4
 
         //- SCRIPTS - VARIABLES Y STYLESSd
+        //- script(src="scripts.js") 
+        
+        //- Variables y uso dentro de HTML: 
+        //- -const name="Jose"
+        //- -const numbers = [1,2,3,4,5]
+
+        //- p= `Hola ${name}`
+        //- ul 
+        //-     li= numbers[0]
+        //-     li= numbers[1]
+        //-     li= numbers[2]
+        //-     li= numbers[3]
+        //-     li= numbers[4]
+
+        //- Objetos :
+        //- -
+        //-     const persona = {
+        //-         name: "Jose",
+        //-         apellido: "Sissa",
+        //-         edad: 24,
+        //-         sexo: "M"
+        //-     }
+        //- ul 
+        //-     li= persona.name
+        //-     li= persona.apellido
+        //-     li= persona.edad
+        //-     li= persona.sexo
+        
+        //- p= `${persona.name} ${persona.apellido} tiene ${persona.edadd}`
+
+        //- Condicionales: 
+        //- -let username = true
+        //- if username 
+        //-     p Bienvenido usuario
+        //- else if username == null
+        //-     p Username no existe
+        //- else
+        //-     p Registrese para continuar
+
+        //- Operador ternario 
+        //- -let name = false 
+        //- p(class= name ? 'registrado': 'no registrado')
+
+
+        //- BLUCES
+
+        //- -const names = ['leidy', 'juan', 'maria', 'camila']
+        //- -const names2 = []
+
+        //- each name in names
+        //-     p= `${name.charAt(0).toUpperCase()}${name.substring(1)}`
+        //- each name in names2 
+        //-     p= name
+        //- else 
+        //-     p No names
+
+        //-  RECORRIENDO UN OBJETO CON EACH
+
+        //- -
+        //-     const persona = {
+        //-         name: "Jose",
+        //-         apellido: "Sissa",
+        //-         edad: 24,
+        //-         sexo: "Masculino"
+        //-     }
+
+        //- each value, key in persona 
+        //-     p= `${key}: ${value}`
+
+        //- TEMPLATES
+        //- Se usan para guardar el código que se repite muchas veces dentro de los archivos .pug 
+        //- Se enlazan las paginas .pug que quieran usar el código guardado en el archivo template usando la siguiente instrucción: 
+        //- extends ../templates/template
