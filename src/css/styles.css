@@ -29,15 +29,17 @@
     height: 80px;
 }
 
-.section__login{
+.section__login, .section__register{
     width: 100%;
     position: relative;
+    margin-bottom: 50px;
 }
+.login{height: 480px;}
+.register{height: 550px;}
 
-.login{
+.login, .register{
     position: relative;
     width: 400px;
-    height: 430px;
     border-radius: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -58,6 +60,7 @@
     padding-bottom: 30px;
 }
 
+.form__login{margin-bottom: 25px;}
 .login__input{
     box-sizing: border-box;
     width: 100%;
@@ -82,4 +85,12 @@
 }
 .button:hover{
     background-color: var(--button-focus) ;
+}
+
+.link{
+    font-weight: 700;
+    color: var(--button);
+}
+.link:hover{
+    color: var(--button-focus);
 }

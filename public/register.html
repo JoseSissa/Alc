@@ -4,27 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="/resources/css/styles-min.css?t=1635540944020">
+    <title>Registro Usuarios </title>
+    <link rel="stylesheet" href="/resources/css/styles-min.css?t=1635540944031">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet">
   </head>
   <body class="body">
     <header class="header"><a class="header__logo" href="#"><img class="logo" src="/resources/image/logo.jpg" alt=""></a></header>
-    <main class="main">
-      <section class="section__login">
-        <div class="login">
-          <div class="login__header">
-            <h2 class="login__header--title">Inicia sesión</h2>
+    <main>
+      <section class="section__register"> 
+        <div class="register"> 
+          <div class="register__header"> 
+            <h2 class="register__header--title">Ingresa los siguientes datos </h2>
           </div>
-          <div class="login__body">
-            <form class="form__login" action="pathLogin" method="POST">
+          <div class="register__body">
+            <form action="/register" method="POST"> 
               <input class="login__input" id="user" type="text" name="user" placeholder="Usuario" required="">
+              <input class="login__input" id="user" type="text" name="names" placeholder="Nombres" required="">
+              <input class="login__input" id="user" type="text" name="rol" placeholder="Rol" required="">
               <input class="login__input" id="pass" type="password" name="pass" placeholder="Contraseña" required="">
-              <input class="button" id="submit" type="submit" value="Ingresa">
+              <input class="button" id="submit" type="submit" value="Registrese">
             </form>
-            <p>Si aun no estas registrado: <a class="link" href="/resources/register.html">Hazlo aquí.</a></p>
           </div>
         </div>
       </section>

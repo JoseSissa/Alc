@@ -19,6 +19,9 @@ html(lang='en')
           .login__header
             h2.login__header--title Inicia sesión
           .login__body
-            input#user.login__input(type='text' placeholder='Usuario' required='')
-            input#password.login__input(type='password' placeholder='Contraseña' required='')
-            input#submit.button(type='submit' value='Ingresa')
+            form(action="pathLogin", method="POST").form__login
+              input#user.login__input(type='text' name='user' placeholder='Usuario' required='')
+              input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required='')
+              input#submit.button(type='submit' value='Ingresa')
+            p Si aun no estas registrado: 
+              a(href="/resources/register.html").link Hazlo aquí.

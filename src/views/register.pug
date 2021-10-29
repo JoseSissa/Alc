@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Registro Usuarios 
+        link(rel="stylesheet", href="/resources/css/styles-min.css")
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
+    body.body
+        header.header
+            a.header__logo(href='#')
+                img.logo(src='/resources/image/logo.jpg' alt='')
+        main
+            section.section__register 
+                .register 
+                    .register__header 
+                        h2.register__header--title Ingresa los siguientes datos 
+                    .register__body
+                        form(action="/register", method="POST") 
+                            input#user.login__input(type='text' name='user' placeholder='Usuario' required='')
+                            input#user.login__input(type='text' name='names' placeholder='Nombres' required='')
+                            input#user.login__input(type='text' name='rol' placeholder='Rol' required='')
+                            input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required='')
+                            input#submit.button(type='submit' value='Registrese')

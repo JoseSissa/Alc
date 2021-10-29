@@ -34,14 +34,35 @@ app.use(session({
 //Se invoca el módulo de conexión de la db.
 const connection = require('./database/connection');
 
+
+
 //Establecemos las rutas
 
-
-
 app.get('/', (req, res)=>{
-    res.render('index')
+    res.render('login');
 });
 
+app.get('/register', (req, res)=>{
+    res.render('register');
+});
+
+
+
+//Establecemos la registración de los datos
+
+app.post('/register', async (req, res)=>{
+    const user = req.body.user;
+    const names = req.body.names;
+    const rol = req.body.rol;
+    const pass = req.body.pass;
+    let passHash = await bcryptjs.hash(pass, 8);
+    connection.query('INSERT INTO users SET ?', {user:user, name:names, rol:rol, pass:passHash}, async (error, results)=>{
+        if (error) console.log('El error de la sentencia es: '+error)
+        else res.send('h1 LOS DATOS SE GUARDARON EXITOSAMENTE');
+    })
+})
+
+// Estableciendo el puerto de escucha
 app.listen(3000, (req, res)=>{
     console.log('El servidor está ejecutandose');
 });
