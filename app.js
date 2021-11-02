@@ -41,7 +41,9 @@ const connection = require('./database/connection');
 app.get('/', (req, res)=>{
     res.render('login');
 });
-
+app.get('/login', (req, res)=>{
+    res.render('login');
+})
 app.get('/register', (req, res)=>{
     res.render('register');
 });
@@ -58,9 +60,35 @@ app.post('/register', async (req, res)=>{
     let passHash = await bcryptjs.hash(pass, 8);
     connection.query('INSERT INTO users SET ?', {user:user, name:names, rol:rol, pass:passHash}, async (error, results)=>{
         if (error) console.log('El error de la sentencia es: '+error)
-        else res.send('h1 LOS DATOS SE GUARDARON EXITOSAMENTE');
+        else res.render('register', { alert: true })
     })
 })
+
+// Autenticación de los usuarios
+app.post('/login', async (req, res)=>{
+    const user = req.body.user;
+    const pass = req.body.pass;
+    let passHash = await bcryptjs.hash(pass, 8);
+
+    if (user && pass){
+        connection.query("SELECT * FROM users WHERE user = ?", [user], async(error, results)=>{
+            if (results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
+                res.render('login', {
+                    alerta: true, 
+                    icon: `error`,
+                    title: `Conexión fallida`,
+                    text: `Usuario o contraseña incorrectas. .`
+                })
+            }else{
+                req.session.name = results[0].name;
+                res.send("LOGIN CORRECTO");
+            }
+        })
+    }else{
+        res.render('login', { alert: false })
+    }
+})
+
 
 // Estableciendo el puerto de escucha
 app.listen(3000, (req, res)=>{
