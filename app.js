@@ -38,9 +38,6 @@ const connection = require('./database/connection');
 
 //Establecemos las rutas
 
-app.get('/', (req, res)=>{
-    res.render('login');
-});
 app.get('/login', (req, res)=>{
     res.render('login');
 })
@@ -77,17 +74,35 @@ app.post('/login', async (req, res)=>{
                     alerta: true, 
                     icon: `error`,
                     title: `Conexión fallida`,
-                    text: `Usuario o contraseña incorrectas. .`
+                    text: `Usuario o contraseña incorrectas.`
                 })
             }else{
+                req.session.loggedin = true;
                 req.session.name = results[0].name;
-                res.send("LOGIN CORRECTO");
+                res.render('index', { alert:true });
             }
         })
-    }else{
-        res.render('login', { alert: false })
     }
-})
+});
+
+
+// Autenticación para el resto de las páginas
+app.get('/', (req, res)=>{
+    if(req.session.loggedin){
+        res.render('index', {
+            login: true,
+            hola: "Hola mundo",
+            name: req.session.name
+        });
+    }else{
+        res.render('index', {
+            login: false,
+            hola: "Hola mundo",
+            name: 'Debe iniciar sesión.'
+        })
+    }
+
+});
 
 
 // Estableciendo el puerto de escucha

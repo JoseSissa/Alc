@@ -4,5 +4,17 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Vista Usuario
+        title Pantalla principal
+
+        link(rel="stylesheet", href="/resources/css/styles-min.css")
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
     body 
+        h1= `Página de inicio ${hola}`
+            if login
+                h2= `El usuario conectado es: ${name.toUpperCase()}`
+                a(href="logout").button Desconectarse
+            else 
+                h2= `Entró el else: ${hola}`
+                a(href="login").button Inicia Sesión
