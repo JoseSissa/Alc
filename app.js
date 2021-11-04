@@ -24,7 +24,7 @@ app.use(express.static(__dirname + '/src'));
 const bcryptjs = require('bcryptjs');
 
 //Configuramos las variables de sesión
-const session =  require('express-session');
+let session =  require('express-session');
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -37,10 +37,12 @@ const connection = require('./database/connection');
 
 
 //Establecemos las rutas
-
+app.get('/', (req, res)=>{
+    res.render('login')
+});
 app.get('/login', (req, res)=>{
     res.render('login');
-})
+});
 app.get('/register', (req, res)=>{
     res.render('register');
 });
@@ -61,47 +63,35 @@ app.post('/register', async (req, res)=>{
     })
 })
 
+
 // Autenticación de los usuarios
-app.post('/login', async (req, res)=>{
+app.post('/auth', async (req, res)=>{
     const user = req.body.user;
     const pass = req.body.pass;
-    let passHash = await bcryptjs.hash(pass, 8);
+    let passwordHash = await bcryptjs.hash(pass, 8);
 
     if (user && pass){
         connection.query("SELECT * FROM users WHERE user = ?", [user], async(error, results)=>{
             if (results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
-                res.render('login', {
-                    alerta: true, 
-                    icon: `error`,
-                    title: `Conexión fallida`,
-                    text: `Usuario o contraseña incorrectas.`
-                })
+                // res.send('USUARIO Y/O CONTRASEÑA INCORRECTAS.')
+                const sweetAlert = {
+                    control: true,
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Error en la conexión a la bd'
+                }
+                module.exports = sweetAlert;
+                res.render('prueba')
+
+
             }else{
-                req.session.loggedin = true;
-                req.session.name = results[0].name;
-                res.render('index', { alert:true });
+                // req.session.loggedin = true;
+                // req.session.name = results[0].name;
+                // res.render('prueba', {alerta: true});
+                res.send('LOGIN CORRECTO');
             }
         })
     }
-});
-
-
-// Autenticación para el resto de las páginas
-app.get('/', (req, res)=>{
-    if(req.session.loggedin){
-        res.render('index', {
-            login: true,
-            hola: "Hola mundo",
-            name: req.session.name
-        });
-    }else{
-        res.render('index', {
-            login: false,
-            hola: "Hola mundo",
-            name: 'Debe iniciar sesión.'
-        })
-    }
-
 });
 
 

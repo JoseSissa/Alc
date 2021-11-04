@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="/resources/css/styles-min.css?t=1635904096451">
+    <link rel="stylesheet" href="/resources/css/styles-min.css?t=1635990196334">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet">
@@ -19,9 +19,9 @@
             <h2 class="login__header--title">Inicia sesión</h2>
           </div>
           <div class="login__body">
-            <form class="form__login" action="/login" method="POST">
-              <input class="login__input" id="user" type="text" name="user" placeholder="Usuario" required="">
-              <input class="login__input" id="pass" type="password" name="pass" placeholder="Contraseña" required="">
+            <form class="form__login" action="/auth" method="POST">
+              <input class="login__input" id="user" type="text" name="user" placeholder="Usuario" required>
+              <input class="login__input" id="pass" type="password" name="pass" placeholder="Contraseña" required>
               <input class="button" id="submit" type="submit" value="Ingresa">
             </form>
             <p>Si aun no estas registrado: <a class="link" href="/resources/register.html">Hazlo aquí.</a></p>
@@ -29,6 +29,6 @@
         </div>
       </section>
     </main>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"> </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

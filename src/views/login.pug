@@ -20,18 +20,21 @@ html(lang='en')
           .login__header
             h2.login__header--title Inicia sesión
           .login__body
-            form(action="/login", method="POST").form__login
-              input#user.login__input(type='text' name='user' placeholder='Usuario' required='')
-              input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required='')
+            form(action="/auth", method="POST").form__login
+              input#user.login__input(type='text' name='user' placeholder='Usuario' required)
+              input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required)
               input#submit.button(type='submit' value='Ingresa')
             p Si aun no estas registrado: 
               a(href="/resources/register.html").link Hazlo aquí.
 
-    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11") 
-    if typeof alerta != "undefined"
+    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
+    -const icono = icon;
+    if alerta == true
+      p= `Hola ${alerta}`
       script.
-        Swal.fire({
-            icon: `error`,
+          Swal.fire({
+            icon: `${icono}`,
             title: `Conexión fallida`,
             text: `Usuario o contraseña incorrectas. Si no está registrado, comuniquese con el administrador.`
           })
+        

@@ -21,8 +21,8 @@ html(lang="en")
                     .register__body
                         form(action="/register", method="POST") 
                             input#user.login__input(type='text' name='user' placeholder='Usuario' required='')
-                            input#user.login__input(type='text' name='names' placeholder='Nombres' required='')
-                            input#user.login__input(type='text' name='rol' placeholder='Rol' required='')
+                            input#name.login__input(type='text' name='names' placeholder='Nombres' required='')
+                            input#rol.login__input(type='text' name='rol' placeholder='Rol' required='')
                             input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required='')
                             input#submit.button(type='submit' value='Registrese')
 
@@ -37,6 +37,6 @@ html(lang="en")
                     showConfirmButton: false,
                     timer: 1800
                 }).then(()=>{
-                    window.location = ""
+                    window.location = "/"
                 })
         

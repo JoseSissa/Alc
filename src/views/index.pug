@@ -11,10 +11,12 @@ html(lang="en")
         link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
     body 
-        h1= `Página de inicio ${hola}`
-            if login
-                h2= `El usuario conectado es: ${name.toUpperCase()}`
-                a(href="logout").button Desconectarse
-            else 
-                h2= `Entró el else: ${hola}`
-                a(href="login").button Inicia Sesión
+        h1= title 
+        p= message
+        p= num
+        if num == 1
+            h2= `El usuario conectado es: #{name.toUpperCase()}`
+            a(href="logout").button Desconectarse
+        else 
+            h2 "Entró el else:"
+            a(href="login").button Inicia Sesión
