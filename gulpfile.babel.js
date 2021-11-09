@@ -69,7 +69,7 @@ gulp.task('views', ()=>{
         .pipe(cacheBust({
             type: 'timestamp'
         }))
-        .pipe(gulp.dest('./public'))
+        .pipe(gulp.dest('./public/views'))
 })
 
 

@@ -74,14 +74,13 @@ app.post('/auth', async (req, res)=>{
         connection.query("SELECT * FROM users WHERE user = ?", [user], async(error, results)=>{
             if (results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
                 // res.send('USUARIO Y/O CONTRASEÑA INCORRECTAS.')
-                const sweetAlert = {
+                let sweetAlert = {
                     control: true,
                     icon: 'error',
                     title: 'Error',
                     text: 'Error en la conexión a la bd'
-                }
-                module.exports = sweetAlert;
-                res.render('prueba')
+                };
+                res.render('prueba', {sweetAlert});
 
 
             }else{

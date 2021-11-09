@@ -1,1 +1,1 @@
-"use strict";console.log("icon"),console.log("title"),console.log("text"),Swal.fire({title:"".concat(sweetAlert.title)});
+"use strict";console.log("Mensaje desde el archivo de sweetAlert.js"),console.log(sweetAlert.icon);

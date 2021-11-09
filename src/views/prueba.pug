@@ -10,14 +10,20 @@ html(lang="en")
         //- icon: 'error'
         //- title: 'Conexión fallida',
         //- text: 'Usuario o contraseña incorrectas.'
-        
-        if control 
-            p= `${icon}`
-            p= `${title}`
-            p= `${text}`
-
+        p= `${sweetAlert.icon}`
+        p= `${sweetAlert.title}`
+        p= `${sweetAlert.text}`
+        if sweetAlert.control == true 
+            p= `${sweetAlert.icon}`
+            p= `${sweetAlert.title}`
+            p= `${sweetAlert.text}`
         script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
         script(src="/resources/js/scripts-total.js")
+        //- script.
+        //-     export const num =1;
+        //-     console.log(`${sweetAlert.icon}`);
+        //-     console.log(`${sweetAlert.title}`);
+        //-     console.log(`${sweetAlert.text}`);
                 
 
         

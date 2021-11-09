@@ -1,9 +1,2 @@
-
-
-console.log('icon');
-console.log('title');
-console.log('text');
-
-Swal.fire({
-    title: `${sweetAlert.title}`
-});
+console.log('Mensaje desde el archivo de sweetAlert.js');
+console.log(sweetAlert.icon);
