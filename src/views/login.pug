@@ -25,16 +25,17 @@ html(lang='en')
               input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required)
               input#submit.button(type='submit' value='Ingresa')
             p Si aun no estas registrado: 
-              a(href="/resources/register.html").link Hazlo aquí.
+              a(href="/resources/views/register.html").link Hazlo aquí.
 
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
-    -const icono = icon;
-    if alerta == true
-      p= `Hola ${alerta}`
-      script.
-          Swal.fire({
-            icon: `${icono}`,
-            title: `Conexión fallida`,
-            text: `Usuario o contraseña incorrectas. Si no está registrado, comuniquese con el administrador.`
-          })
-        
+    script(type='text/javascript').
+      let x = !{o};
+      Swal.fire({
+        title: x.title,
+        text: x.text,
+        icon: x.icon,
+        showConfirmButton: x.scButton,
+        timer: x.timer
+      }).then(()=>{
+        window.location= `/${x.ruta}`;
+      });

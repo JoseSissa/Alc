@@ -37,9 +37,7 @@ const connection = require('./database/connection');
 
 
 //Establecemos las rutas
-app.get('/', (req, res)=>{
-    res.render('login')
-});
+
 app.get('/login', (req, res)=>{
     res.render('login');
 });
@@ -74,25 +72,60 @@ app.post('/auth', async (req, res)=>{
         connection.query("SELECT * FROM users WHERE user = ?", [user], async(error, results)=>{
             if (results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
                 // res.send('USUARIO Y/O CONTRASEÑA INCORRECTAS.')
-                let sweetAlert = {
+                const sweetAlert = {
                     control: true,
                     icon: 'error',
                     title: 'Error',
-                    text: 'Error en la conexión a la bd'
+                    text: 'Error en la conexión a la bd',
+                    scButton: true,
+                    timer: false,
+                    ruta: 'login' 
                 };
-                res.render('prueba', {sweetAlert});
+                res.render('login', {o: JSON.stringify(sweetAlert)});
 
 
             }else{
-                // req.session.loggedin = true;
-                // req.session.name = results[0].name;
-                // res.render('prueba', {alerta: true});
-                res.send('LOGIN CORRECTO');
+                req.session.loggedin = true;
+                req.session.name = results[0].name;
+                const sweetAlert = {
+                    control: true,
+                    icon: 'success',
+                    title: 'Conexión exitosa',
+                    text: '¡LOGIN CORRECTO!',
+                    scButton: false,
+                    timer: 1500,
+                    ruta: '' 
+                };
+                res.render('login', {o: JSON.stringify(sweetAlert)});
             }
         })
     }
 });
 
+
+//Autenticación para el resto de las páginas
+app.get('/', (req, res)=>{ 
+    if(req.session.loggedin == true){
+        const autenticar = {
+            login: true,
+            name: req.session.name
+        };
+        res.render('index', {autenticar});
+    }else{
+        const autenticar = {
+            login: false,
+            name: 'Debe iniciar sesión.'
+        };
+        res.render('index', {autenticar});
+    }
+});
+
+// Logout
+app.get('/logout', (req, res)=>{
+    req.session.destroy(()=>{
+        res.redirect('login');
+    });
+});
 
 // Estableciendo el puerto de escucha
 app.listen(3000, (req, res)=>{
