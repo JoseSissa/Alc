@@ -21,11 +21,10 @@ html(lang='en')
             h2.login__header--title Inicia sesión
           .login__body
             form(action="/auth", method="POST").form__login
-              input#user.login__input(type='text' name='user' placeholder='Usuario' required)
+              input#user.login__input(type='text' name='user' placeholder='Cédula' required)
               input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required)
               input#submit.button(type='submit' value='Ingresa')
-            p Si aun no estas registrado: 
-              a(href="/resources/views/register.html").link Hazlo aquí.
+            p Si aun no estas registrado: Contacta con un administrador
 
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
     script(type='text/javascript').

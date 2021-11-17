@@ -50,12 +50,17 @@ app.get('/register', (req, res)=>{
 //Establecemos la registración de los datos
 
 app.post('/register', async (req, res)=>{
-    const user = req.body.user;
-    const names = req.body.names;
-    const rol = req.body.rol;
+    const cc = req.body.cc;
+    const apellido1 = req.body.apellido1.toUpperCase();
+    const apellido2 = req.body.apellido2.toUpperCase();
+    const nombres = req.body.nombres.toUpperCase();
+    const rol = req.body.rol.toUpperCase();
+    const dependencia = req.body.dependencia.toUpperCase();
     const pass = req.body.pass;
+
     let passHash = await bcryptjs.hash(pass, 8);
-    connection.query('INSERT INTO users SET ?', {user:user, name:names, rol:rol, pass:passHash}, async (error, results)=>{
+    
+    connection.query('INSERT INTO users SET ?', {cc:cc, apellido1:apellido1, apellido2:apellido2, nombres:nombres, rol:rol, dependencia:dependencia, pass:passHash}, async (error, results)=>{
         if (error) console.log('El error de la sentencia es: '+error)
         else res.render('register', { alert: true })
     })
@@ -69,9 +74,8 @@ app.post('/auth', async (req, res)=>{
     let passwordHash = await bcryptjs.hash(pass, 8);
 
     if (user && pass){
-        connection.query("SELECT * FROM users WHERE user = ?", [user], async(error, results)=>{
+        connection.query("SELECT * FROM users WHERE cc = ?", [user], async(error, results)=>{
             if (results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
-                // res.send('USUARIO Y/O CONTRASEÑA INCORRECTAS.')
                 const sweetAlert = {
                     control: true,
                     icon: 'error',
@@ -86,7 +90,7 @@ app.post('/auth', async (req, res)=>{
 
             }else{
                 req.session.loggedin = true;
-                req.session.name = results[0].name;
+                req.session.name = results[0].nombres;
                 const sweetAlert = {
                     control: true,
                     icon: 'success',
@@ -99,6 +103,8 @@ app.post('/auth', async (req, res)=>{
                 res.render('login', {o: JSON.stringify(sweetAlert)});
             }
         })
+    }else{
+        res.send('Login incorrecto');
     }
 });
 
@@ -121,7 +127,7 @@ app.get('/', (req, res)=>{
 });
 
 // Logout
-app.get('/logout', (req, res)=>{
+app.get('logout', (req, res)=>{
     req.session.destroy(()=>{
         res.redirect('login');
     });

@@ -11,10 +11,15 @@ html(lang="en")
         link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
     body 
-
-        if autenticar.login==true
-            h1= `El usuario conectado es: ${autenticar.name}`
-            a(href="logout").button Desconectarse 
-        else 
-            h1= `${autenticar.name}`
-            a(href="login").button Ir a Iniciar Sesión 
+        header.header
+            a.header__logo(href='#')
+                img.logo(src='/resources/image/logo.jpg' alt='')
+        main.main 
+            section#name_User.name_user 
+                h1 Ingresado
+                if autenticar.login 
+                    h1= `El usuario conectado es: ${autenticar.name}`
+                    a(href="logout").button Desconectarse 
+                else 
+                    h1= `${autenticar.name}`
+                    a(href="login").button Ir a Iniciar Sesión

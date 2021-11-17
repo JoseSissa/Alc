@@ -20,9 +20,15 @@ html(lang="en")
                         h2.register__header--title Ingresa los siguientes datos 
                     .register__body
                         form(action="/register", method="POST") 
-                            input#user.login__input(type='text' name='user' placeholder='Usuario' required='')
-                            input#name.login__input(type='text' name='names' placeholder='Nombres' required='')
-                            input#rol.login__input(type='text' name='rol' placeholder='Rol' required='')
+                            input#cc.login__input(type='number' name='cc' placeholder='Cédula' required='')
+                            input#apellido1.login__input(type='text' name='apellido1' placeholder='Primer apellido' required='')
+                            input#apellido2.login__input(type='text' name='apellido2' placeholder='Segundo apellido' required='')
+                            input#nombres.login__input(type='text' name='nombres' placeholder='Nombres' required='')
+                            select#rol.select__Rol(name="rol") 
+                                option#select-empty(value="select") - Seleccionar Rol -
+                                option(value="usuario") Usuario
+                                option(value="administrador") Administrador
+                            input#dependencia.login__input(type='text' name='dependencia' placeholder='Dependencia' required='')
                             input#pass.login__input(type='password' name='pass' placeholder='Contraseña' required='')
                             input#submit.button(type='submit' value='Registrese')
 

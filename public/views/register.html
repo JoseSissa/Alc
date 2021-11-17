@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Usuarios </title>
-    <link rel="stylesheet" href="/resources/css/styles-min.css?t=1636662956290">
+    <link rel="stylesheet" href="/resources/css/styles-min.css?t=1637164739254">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet">
@@ -20,9 +20,16 @@
           </div>
           <div class="register__body">
             <form action="/register" method="POST"> 
-              <input class="login__input" id="user" type="text" name="user" placeholder="Usuario" required="">
-              <input class="login__input" id="name" type="text" name="names" placeholder="Nombres" required="">
-              <input class="login__input" id="rol" type="text" name="rol" placeholder="Rol" required="">
+              <input class="login__input" id="cc" type="number" name="cc" placeholder="Cédula" required="">
+              <input class="login__input" id="apellido1" type="text" name="apellido1" placeholder="Primer apellido" required="">
+              <input class="login__input" id="apellido2" type="text" name="apellido2" placeholder="Segundo apellido" required="">
+              <input class="login__input" id="nombres" type="text" name="nombres" placeholder="Nombres" required="">
+              <select class="select__Rol" id="rol" name="rol"> 
+                <option id="select-empty" value="select">- Seleccionar Rol -</option>
+                <option value="usuario">Usuario</option>
+                <option value="administrador">Administrador</option>
+              </select>
+              <input class="login__input" id="dependencia" type="text" name="dependencia" placeholder="Dependencia" required="">
               <input class="login__input" id="pass" type="password" name="pass" placeholder="Contraseña" required="">
               <input class="button" id="submit" type="submit" value="Registrese">
             </form>

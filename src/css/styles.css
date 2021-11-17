@@ -36,7 +36,7 @@
     position: relative;
 }
 .login{height: 480px;}
-.register{height: 550px;}
+.register{height: 750px;}
 
 .login, .register{
     position: relative;
@@ -72,6 +72,14 @@
     padding: 0 10px;
     border: 1px solid var(--gray) ;
     outline: none;
+}
+.select__Rol{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 49px;
+    margin-bottom: 25px;
+    padding: 0 10px;
 }
 
 .button{
@@ -122,3 +130,4 @@
     text-align: center;
 }
 .screen__done--img{width: 40px; height: 40px;}
+
