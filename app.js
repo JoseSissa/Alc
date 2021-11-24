@@ -42,7 +42,13 @@ app.get('/login', (req, res)=>{
     res.render('login');
 });
 app.get('/register', (req, res)=>{
-    res.render('register');
+    if(req.session.tipoUser == 'ADMINISTRADOR'){
+        res.render('register');
+    }else if (req.session.tipoUser == 'USUARIO'){
+        res.render('indexUser');
+    }else{
+        res.render('login')
+    }
 });
 
 
@@ -50,6 +56,7 @@ app.get('/register', (req, res)=>{
 //Establecemos la registración de los datos
 
 app.post('/register', async (req, res)=>{
+    
     const cc = req.body.cc;
     const apellido1 = req.body.apellido1.toUpperCase();
     const apellido2 = req.body.apellido2.toUpperCase();
@@ -91,6 +98,7 @@ app.post('/auth', async (req, res)=>{
             }else{
                 req.session.loggedin = true;
                 req.session.name = results[0].nombres;
+                req.session.tipoUser = results[0].rol;
                 const sweetAlert = {
                     control: true,
                     icon: 'success',
@@ -114,26 +122,52 @@ app.get('/', (req, res)=>{
     if(req.session.loggedin == true){
         const autenticar = {
             login: true,
-            name: req.session.name
+            name: req.session.name,
+            rol: req.session.tipoUser
         };
-        res.render('index', {autenticar});
+        if(req.session.tipoUser == 'ADMINISTRADOR') res.render('indexAdmin', {autenticar})
+        else res.render('indexUser', {autenticar});
     }else{
         const autenticar = {
-            login: false,
-            name: 'Debe iniciar sesión.'
+            icon: 'error',
+            title: 'Error',
+            text: 'No puedes acceder a esta dirección si no has iniciado sesión.',
+            scButton: false,
+            timer: 2000,
+            ruta: 'login'
         };
-        res.render('index', {autenticar});
+        res.render('login', {o: JSON.stringify(autenticar)});
     }
 });
 
+
+
 // Logout
-app.get('logout', (req, res)=>{
-    req.session.destroy(()=>{
-        res.redirect('login');
-    });
+app.get('/logout', (req, res)=>{
+    req.session.destroy();
+    res.redirect('login');
 });
+
+app.get('/indexUser', (req, res)=>{
+    res.redirect('/');
+})
+app.get('/inicioAdmin', (req, res)=>{
+    res.redirect('/');
+})
+
+app.get('/newRegister', (req, res)=>{
+    res.render('newRegister');
+});
+
 
 // Estableciendo el puerto de escucha
 app.listen(3000, (req, res)=>{
     console.log('El servidor está ejecutandose');
 });
+
+
+// --------------------------------------------------
+// --------------------------------------------------
+// --------------------------------------------------
+
+

@@ -5,7 +5,8 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title Registro Usuarios 
-        link(rel="stylesheet", href="/resources/css/styles-min.css")
+        link(rel="stylesheet", href="../css/styles.css")
+        link(rel="stylesheet", href="../css/normalize.css")
         link(rel='preconnect' href='https://fonts.googleapis.com')
         link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
@@ -13,6 +14,11 @@ html(lang="en")
         header.header
             a.header__logo(href='#')
                 img.logo(src='/resources/image/logo.jpg' alt='')
+            ul.buttons
+                li.buttons_menu: a(href="inicioAdmin").buttons_menu-item Inicio
+                li.buttons_menu: a(href="#").buttons_menu-item Ver registros 
+                li.buttons_menu: a(href="register").buttons_menu-item Nuevo usuario
+                li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
         main.main
             section.section__register 
                 .register 
@@ -43,6 +49,6 @@ html(lang="en")
                     showConfirmButton: false,
                     timer: 1800
                 }).then(()=>{
-                    window.location = "/"
+                    window.location = "/login"
                 })
-        
+        script(src="../js/scripts.js") 

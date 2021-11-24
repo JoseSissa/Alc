@@ -5,13 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Usuarios </title>
-    <link rel="stylesheet" href="/resources/css/styles-min.css?t=1637164739254">
+    <link rel="stylesheet" href="../css/styles.css?t=1637526684519">
+    <link rel="stylesheet" href="../css/normalize.css?t=1637526684519">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet">
   </head>
   <body class="body">
-    <header class="header"><a class="header__logo" href="#"><img class="logo" src="/resources/image/logo.jpg" alt=""></a></header>
+    <header class="header"><a class="header__logo" href="#"><img class="logo" src="/resources/image/logo.jpg" alt=""></a>
+      <ul class="buttons">
+        <li class="buttons_menu"><a class="buttons_menu-item" href="/resources/views/indexAdmin.html">Inicio</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="#">Ver registros </a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="/resources/views/register.html">Nuevo usuario</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="/logout">Desconectarse</a></li>
+      </ul>
+    </header>
     <main class="main">
       <section class="section__register"> 
         <div class="register"> 
@@ -38,5 +46,6 @@
       </section>
     </main>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"> </script>
+    <script src="../js/scripts.js?t=1637526684519"> </script>
   </body>
 </html>

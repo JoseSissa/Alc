@@ -6,16 +6,20 @@
     --white: #FFF;
     --gray: gray;
 }
-.body{
+body{
     position: relative;
     background-color: var(--body) ;
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
+    box-sizing: border-box;
 }
 .main{
     position: relative;
 }
 .header{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
     width: 100%;
     height: 80px;
     padding: 0 50px;
@@ -30,7 +34,25 @@
     width: 200px;
     height: 80px;
 }
-
+.buttons{
+    display: flex;
+    list-style: none;
+}
+.buttons_menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttons_menu-item{
+    text-decoration: none;
+    margin: 0 25px;
+    font-weight: 700;
+    color: var(--white);
+}
+.buttons_menu-item:hover{
+    border-bottom: 1px solid var(--white);
+    cursor: pointer;
+}
 .section__login, .section__register{
     width: 100%;
     position: relative;
