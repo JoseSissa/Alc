@@ -155,8 +155,8 @@ app.get('/inicioAdmin', (req, res)=>{
     res.redirect('/');
 })
 
-app.get('/newRegister', (req, res)=>{
-    res.render('newRegister');
+app.get('/newRegisterpqrs', (req, res)=>{
+    res.render('newRegisterpqrs');
 });
 
 

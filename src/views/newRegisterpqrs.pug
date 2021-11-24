@@ -1,0 +1,55 @@
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Nuevo Registro
+
+        link(rel="stylesheet", href="../css/styles.css")
+        link(rel="stylesheet", href="../css/normalize.css")
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
+
+    body.body
+        header.header
+            a.header__logo(href='#')
+                img.logo(src='/resources/image/logo.jpg' alt='')
+            ul.buttons
+                li.buttons_menu: a(href="indexUser").buttons_menu-item Inicio
+                li.buttons_menu: a(href="#").buttons_menu-item Ver registros 
+                li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
+        main.main 
+            //- h2= `El usuario conectado es: ${autenticar.name} y el tipo de usuario es ${autenticar.rol}`
+            section.pqrs#pqrs 
+                h2 NUEVO REGISTRO DE PETICIÓN
+                .pqrs__header#pqrsHeader 
+                    p Diligenciar esta información será útil para direccionar tu petición a la dependencia competente
+                    .pqrs__header-select
+                        form(action="/registerPQRS", method="POST").form__registerpqrs
+                            p Selecciones el tipo de petición
+                            select#request.pqrs__header-request(name="requestType") 
+                                option#select-empty(value="select") - Tipo de petición -
+                                option(value="sugerencia") Sugerencia
+                                option(value="felicitacion") Felicitación
+                                option(value="reclamo") Reclamo
+                                option(value="denuncia") Denuncia
+                                option(value="queja") Queja
+                            p Seleccione la entidad destino 
+                            select#entidad.pqrs__header-entidad(name="entidad") 
+                                option#select-empty(value="select") - Entidad -
+                                option(value="salud") Salud
+                                option(value="hacienda") Hacienda
+                                option(value="sistemas") Sistemas
+                                option(value="gobierno") Gobierno
+                                option(value="almacen") Almacén
+                                option(value="almacen") Nómina
+                            label(for="email") Correo electrónico:
+                                input(type="email")#email.input__email
+                            label(for="email") Teléfono:
+                                input(type="numberTel")#numberTel.input__numberTel
+                            .asunto 
+                                p Asunto:
+                                label(for="textAsunto") 
+                                textarea(name="textAsunto", cols="50", rows="7").asunto#asunto
+                            input(type="submit")
