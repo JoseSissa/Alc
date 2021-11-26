@@ -26,30 +26,35 @@ html(lang="es")
                 .pqrs__header#pqrsHeader 
                     p Diligenciar esta información será útil para direccionar tu petición a la dependencia competente
                     .pqrs__header-select
-                        form(action="/registerPQRS", method="POST").form__registerpqrs
-                            p Selecciones el tipo de petición
-                            select#request.pqrs__header-request(name="requestType") 
-                                option#select-empty(value="select") - Tipo de petición -
-                                option(value="sugerencia") Sugerencia
-                                option(value="felicitacion") Felicitación
-                                option(value="reclamo") Reclamo
-                                option(value="denuncia") Denuncia
-                                option(value="queja") Queja
-                            p Seleccione la entidad destino 
-                            select#entidad.pqrs__header-entidad(name="entidad") 
-                                option#select-empty(value="select") - Entidad -
-                                option(value="salud") Salud
-                                option(value="hacienda") Hacienda
-                                option(value="sistemas") Sistemas
-                                option(value="gobierno") Gobierno
-                                option(value="almacen") Almacén
-                                option(value="almacen") Nómina
-                            label(for="email") Correo electrónico:
-                                input(type="email")#email.input__email
-                            label(for="email") Teléfono:
-                                input(type="numberTel")#numberTel.input__numberTel
+                        form(action="/registerPQRS", method="POST").form__registerpqrs#formRegisterpqrs
+                            .selectpqrs
+                                p Selecciones el tipo de petición
+                                select#request.pqrs__header-request(name="requestType") 
+                                    option#select-empty(value="select") - Tipo de petición -
+                                    option(value="sugerencia") Sugerencia
+                                    option(value="felicitacion") Felicitación
+                                    option(value="reclamo") Reclamo
+                                    option(value="denuncia") Denuncia
+                                    option(value="queja") Queja
+                                p Seleccione la entidad destino 
+                                select#entidad.pqrs__header-entidad(name="entidad") 
+                                    option#select-empty(value="select") - Entidad -
+                                    option(value="salud") Salud
+                                    option(value="hacienda") Hacienda
+                                    option(value="sistemas") Sistemas
+                                    option(value="gobierno") Gobierno
+                                    option(value="almacen") Almacén
+                                    option(value="almacen") Nómina
+                            .emailnumberpqrs
+                                label(for="emailForm") Correo electrónico:
+                                    input(type="email" name="emailForm")#email.input__email
+                                label(for="numberTel") Teléfono:
+                                    input(type="number" name="numberTel")#numberTel.input__numberTel
                             .asunto 
                                 p Asunto:
                                 label(for="textAsunto") 
-                                textarea(name="textAsunto", cols="50", rows="7").asunto#asunto
-                            input(type="submit")
+                                    textarea(name="textAsunto", cols="50", rows="7").asunto#asunto
+                            input(type="submit")#sendRegister
+    
+    script(src="../js/scripts.js")
+        

@@ -190,6 +190,25 @@ body{
 .input__numberTel{
     margin:0 30px 0 50px;
 }
+
+.form__registerpqrs{
+    position: relative;
+    width: 100%;
+}
+.selectpqrs{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+.emailnumberpqrs{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid black;
+}
+
 .asunto{
     resize: none;
 }

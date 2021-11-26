@@ -99,6 +99,7 @@ app.post('/auth', async (req, res)=>{
                 req.session.loggedin = true;
                 req.session.name = results[0].nombres;
                 req.session.tipoUser = results[0].rol;
+                req.session.id = results[0].cc;
                 const sweetAlert = {
                     control: true,
                     icon: 'success',
@@ -116,6 +117,18 @@ app.post('/auth', async (req, res)=>{
     }
 });
 
+app.post("/registerPQRS", async (req, res)=>{
+    const id = req.session.id;
+    const peticion = req.body.requestType.toUpperCase();
+    const entidad = req.body.entidad.toUpperCase();
+    const emailForm = req.body.emailForm.toUpperCase();
+    const numberTel = req.body.numberTel.toUpperCase();
+
+    connection.query('INSERT INSTO registerPQRS SET ?', {id:id, peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
+        if(error) console.log('Error al registrar el PQRS, el error es: '+error)
+        else res.render('newRegisterpqrs', {objeto: sweetAlert});
+    })
+});
 
 //Autenticación para el resto de las páginas
 app.get('/', (req, res)=>{ 
