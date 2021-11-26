@@ -49,5 +49,9 @@ asunto.addEventListener('change', (e)=>{
 const validarForm = () =>{
     const formValues = Object.values(validateFormRegister);
     const valid = formValues.findIndex(value => value == false)
-    if (valid == -1) formRegisterPQRS.submit();
+    if (valid == -1){
+        formRegisterPQRS.submit();
+    }else{
+        alert('Llena todos los campos por favor.');
+    }
 }

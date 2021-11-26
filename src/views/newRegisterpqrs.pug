@@ -57,4 +57,19 @@ html(lang="es")
                             input(type="submit")#sendRegister
     
     script(src="../js/scripts.js")
-        
+    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11") 
+    script(type='text/javascript').
+        let x = !{o};
+        if typeof x.alert != "undefined"
+            Swal.fire({
+                icon: x.icon
+                title: x.title,
+                text: x.text,
+                showConfirmButton: x.scButton,
+                timer: x.timer
+            }).then(()=>{
+                window.location = `/${x.ruta}`;
+            })
+    
+
+//- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus deserunt vitae voluptatibus blanditiis nam molestias assumenda, dolore adipisci quam, laboriosam neque sint sequi possimus fuga. Sint amet cum id porro?
