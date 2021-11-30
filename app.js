@@ -166,7 +166,7 @@ app.post("/registerPQRS", async (req, res)=>{
     const numberTel = req.body.numberTel.toUpperCase();
     const asunto = req.body.textAsunto.toUpperCase();
 
-    connection.query('INSERT INTO registerPQRS SET ?', {peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
+    connection.query('INSERT INTO registerPQRS SET ?', {id:null, cc: req.session.numID, peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
         if(error) {
             console.log('Error al registrar el PQRS, el error es: '+error)
         }else{
@@ -179,7 +179,7 @@ app.post("/registerPQRS", async (req, res)=>{
                 timer: 2000,
                 ruta: 'indexUser'
             }
-            res.render('newRegisterpqrs', {o: JSON.stringify(autenticar)});  
+            res.render('indexUser', {o: JSON.stringify(autenticar)});  
         };
     })
 });

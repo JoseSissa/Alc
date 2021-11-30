@@ -214,6 +214,20 @@ body{
 .campo__botonSubmitPQRS{
     text-align: center;
 }
+.campo__terminos{
+    position: relative;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.terminos{
+    width: 20px;
+    height: 20px;
+}
 .botonSubmitPQRS{
     width: 80%;
     height: 50px;

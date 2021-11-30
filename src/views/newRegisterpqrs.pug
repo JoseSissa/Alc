@@ -41,7 +41,7 @@ html(lang="es")
                         .campo__entidad
                             p Seleccione la entidad destino 
                             select#entidad.pqrs__header-entidad(name="entidad") 
-                                option#select-empty(value="select") - Entidad -
+                                option#select-empty(value="select") - Selecciones la entidad -
                                 option(value="salud") Salud
                                 option(value="hacienda") Hacienda
                                 option(value="sistemas") Sistemas
@@ -58,14 +58,17 @@ html(lang="es")
                             p.campo__asunto--texto Redacte el asunto de su solicitud:
                             label(for="textAsunto").asunto
                                 textarea(name="textAsunto", cols="50", rows="7").asunto#asunto
+                        .campo__terminos 
+                            label(for="terminos") Acepto el uso de mi información personal por parte de la entidad.
+                            input(type="checkbox" name="terminos")#terminos.terminos
                         .campo__botonSubmitPQRS
-                            input(type="submit" value="Enviar Solicitud").botonSubmitPQRS#sendRegister
+                            input(disabled type="submit" value="Enviar Solicitud").botonSubmitPQRS#sendRegister
     
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11") 
     script(src="../js/scripts.js")
     script(type='text/javascript').
         let x = !{o};
-        if typeof x.alert != "undefined"
+        if (typeof x.alert != "undefined"){
             Swal.fire({
                 icon: x.icon
                 title: x.title,
@@ -76,6 +79,8 @@ html(lang="es")
             .then(()=>{
                 window.location = `/${x.ruta}`;
             })
+        };
+        
     
 
 //- 

@@ -4,6 +4,7 @@
 // Validación de los compos
 const formRegisterPQRS = document.getElementById('formRegisterpqrs');
 const buttonRegisterPQRS = document.getElementById('sendRegister');
+buttonRegisterPQRS.setAttribute('disabled', true);
 
 const typeRequest = document.getElementById('request');
 const campoEntidad = document.getElementById('entidad');
@@ -11,6 +12,7 @@ const campoEntidad = document.getElementById('entidad');
 const email = document.getElementById('email');
 const campoTel = document.getElementById('numberTel');
 const campoAsunto = document.getElementById('asunto');
+const terminos = document.getElementById('terminos');
 
 console.log(campoTel.textContent);
 
@@ -19,7 +21,8 @@ let validateFormRegister = {
     entidad : false,
     email : false,
     numberT : false,
-    asunto : false
+    asunto : false,
+    terminos : false
 }
 
 formRegisterPQRS.addEventListener('submit', (e)=>{
@@ -47,6 +50,10 @@ campoTel.addEventListener('change', (e)=>{
 campoAsunto.addEventListener('change', (e)=>{
     if(e.target.value.length > 0) validateFormRegister.asunto=true
     else validateFormRegister.email=false;
+});
+terminos.addEventListener('change', (e)=>{
+    validateFormRegister.terminos = e.target.checked;
+    e.target.checked ? buttonRegisterPQRS.removeAttribute('disabled') : buttonRegisterPQRS.setAttribute('disabled', true);
 });
 
 
