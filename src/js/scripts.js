@@ -1,21 +1,25 @@
-// Validación del formulario register
+// Importación de sweetAlert
 
+
+// Validación de los compos
 const formRegisterPQRS = document.getElementById('formRegisterpqrs');
 const buttonRegisterPQRS = document.getElementById('sendRegister');
 
 const typeRequest = document.getElementById('request');
-const entidad = document.getElementById('entidad');
+const campoEntidad = document.getElementById('entidad');
 
 const email = document.getElementById('email');
-const numberTel = document.getElementById('numberTel');
-const asunto = document.getElementById('asunto');
+const campoTel = document.getElementById('numberTel');
+const campoAsunto = document.getElementById('asunto');
 
-const validateFormRegister = {
-    request = false,
-    entidad = false,
-    email = false,
-    numberT = false,
-    asunto = false
+console.log(campoTel.textContent);
+
+let validateFormRegister = {
+    requisito : false,
+    entidad : false,
+    email : false,
+    numberT : false,
+    asunto : false
 }
 
 formRegisterPQRS.addEventListener('submit', (e)=>{
@@ -24,10 +28,10 @@ formRegisterPQRS.addEventListener('submit', (e)=>{
 });
 
 typeRequest.addEventListener('change', (e)=>{
-    if (e.target.value != 'select') validateFormRegister.request=true
-    else validateFormRegister.request=false;
+    if (e.target.value != 'select') validateFormRegister.requisito=true
+    else validateFormRegister.requisito=false;
 });
-entidad.addEventListener('change', (e)=>{
+campoEntidad.addEventListener('change', (e)=>{
     if (e.target.value != 'select') validateFormRegister.entidad=true
     else validateFormRegister.entidad=false;
 });
@@ -36,11 +40,11 @@ email.addEventListener('change', (e)=>{
     if(e.target.value.trim().length > 0) validateFormRegister.email=true
     else validateFormRegister.email=false;
 });
-numberT.addEventListener('change', (e)=>{
+campoTel.addEventListener('change', (e)=>{
     if(e.target.value.trim().length > 0) validateFormRegister.numberT=true
     else validateFormRegister.email=false;
 });
-asunto.addEventListener('change', (e)=>{
+campoAsunto.addEventListener('change', (e)=>{
     if(e.target.value.length > 0) validateFormRegister.asunto=true
     else validateFormRegister.email=false;
 });
@@ -51,7 +55,12 @@ const validarForm = () =>{
     const valid = formValues.findIndex(value => value == false)
     if (valid == -1){
         formRegisterPQRS.submit();
+        console.log('esperame, no envies a la db la info my doggy');
     }else{
-        alert('Llena todos los campos por favor.');
+        Swal.fire({
+            icon: 'warning',
+            title: 'No podemos enviar la solicutud',
+            text: 'Por favor, llena todos los campos requeridos.',
+        });
     }
 }

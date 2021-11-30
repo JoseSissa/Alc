@@ -24,7 +24,7 @@ body{
     height: 80px;
     padding: 0 50px;
     background-color: var(--header);
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 .header__logo{
     width: 110px;
@@ -157,58 +157,143 @@ body{
 /* ------ STYELESS NEW REGISTER PQRS ------------ */
 /* --------------------------------------------- */
 
-.pqrs, .pqrs__header{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid black;
-}
-.pqrs{
+.seccion__pqrs{
     position: relative;
-    text-align: center;
+    width: 90%;
+    margin: 50px auto 50px auto;
+    box-sizing: border-box;
+    padding: 35px 0 0 0;
+    border: 1px solid rgba(150, 150, 150, 0.3);
 }
-.pqrs__header{
+.seccion__pqrs--header{
+    position: relative;
+    width: 100%;
+    text-align: center;
     margin-bottom: 50px;
 }
-.pqrs__header-select{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid black;
+.seccion__pqrs--cuerpo{
+    position: relative;
+    width: 50%;;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 40px;
+    padding: 20px 70px;
+    border: 1px solid rgba(150, 150, 150, 0.3);
 }
+
+.campo__peticion,
+.campo__entidad,
+.campo__email, 
+.campo__telefono{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.campo__telefono{margin-bottom: 80px;}
 .pqrs__header-request,
 .pqrs__header-entidad,
 .input__email,
-.input__numberTel{
-    width: 250px;
+.input__tel{
+    width: 280px;
     height: 30px;
     box-sizing: border-box;
     padding: 0 10px;
 }
 .input__email,
-.input__numberTel{
-    margin:0 30px 0 50px;
+.input__tel{
+    display: block;
 }
+.campo__asunto{
+    text-align: center;
+    margin-bottom: 45px;
+}
+.campo__asunto--texto{margin-bottom: 40px;}
+.campo__botonSubmitPQRS{
+    text-align: center;
+}
+.botonSubmitPQRS{
+    width: 80%;
+    height: 50px;
+    background-color: var(--button);
+    color: var(--white);
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.botonSubmitPQRS:hover{
+    background-color: var(--button-focus);
+}
+
+
+
+
+/* --------------------------------- */
+/* --------------------------------- */
+/* --------------------------------- */
 
 .form__registerpqrs{
     position: relative;
     width: 100%;
 }
-.selectpqrs{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
-}
-.emailnumberpqrs{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    border: 1px solid black;
-}
-
 .asunto{
     resize: none;
+}
+
+
+
+/* ---------- ESTILOS DE LA PAGINA PRINCIPAL DEL USUARIO COMÙN */
+/* ---------- ESTILOS DE LA PAGINA PRINCIPAL DEL USUARIO COMÙN */
+
+.tituloBienvenida{
+    position: relative;
+    width: 100%;
+    text-align: end;
+    box-sizing: border-box;
+    padding-right: 50px;
+}
+
+.textoInformacion{
+    position: relative;
+    width: 80%;
+    text-align: center;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 0px 30px 0;
+    margin-bottom: 40px;
+}
+
+.textoInformacion::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    bottom: 0;
+    border-style: none dotted;
+}
+
+.infoSolicitudesPQRS{
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 40px 0;
+}
+
+.infoSolicitudesPQRS__crear,
+.infoSolicitudesPQRS__consultar{
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 0 40px;
+}
+
+.infoSolicitudesPQRS__crear--imgCrear,
+.infoSolicitudesPQRS__crear--imgConsultar{
+    margin-right: 25px;
 }

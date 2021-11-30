@@ -137,15 +137,36 @@ app.get('/', (req, res)=>{
     }
 });
 
+app.get('/newRegisterpqrs', (req, res)=>{
+    if(req.session.loggedin == true){
+        const autenticar = {
+            login: true,
+            name: req.session.name,
+            rol: req.session.tipoUser
+        };
+        res.render('newRegisterPQRS', {autenticar})
+    }else{
+        const autenticar = {
+            icon: 'error',
+            title: 'Error',
+            text: 'No puedes acceder a esta dirección si no has iniciado sesión.',
+            scButton: false,
+            timer: 2000,
+            ruta: 'login'
+        };
+        res.render('login', {o: JSON.stringify(autenticar)});
+    }
+});
 
 app.post("/registerPQRS", async (req, res)=>{
+    
     const peticion = req.body.requestType.toUpperCase();
     const entidad = req.body.entidad.toUpperCase();
     const emailForm = req.body.emailForm.toUpperCase();
     const numberTel = req.body.numberTel.toUpperCase();
     const asunto = req.body.textAsunto.toUpperCase();
 
-    connection.query('INSERT INTO registerPQRS SET ?', {id:req.session.numID, peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
+    connection.query('INSERT INTO registerPQRS SET ?', {peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
         if(error) {
             console.log('Error al registrar el PQRS, el error es: '+error)
         }else{

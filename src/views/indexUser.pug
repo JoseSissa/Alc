@@ -17,12 +17,28 @@ html(lang="es")
                 img.logo(src='/resources/image/logo.jpg' alt='')
             ul.buttons
                 li.buttons_menu: a(href="indexUser").buttons_menu-item Inicio
-                li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Registro
+                li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Solicitud
                 li.buttons_menu: a(href="#").buttons_menu-item Ver registros 
                 li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
         main.main 
             //- -const name = autenticar.name
             //- -const rol = autenticar.rol
-            h2= `El usuario conectado es: ${autenticar.name} y el tipo de usuario es ${autenticar.rol}`
+            .tituloBienvenida
+                h3.titutoBienvenida__user= `Bienvenida(o): ${autenticar.name} ${autenticar.rol}`
+            .textoInformacion 
+                p Bienvenido(a), a este sistema de información diseñado e implementado por la Alcaldía de Villa del Rosario como instrumento tecnológico para registrar peticiones, quejas, reclamos, sugerencias, denuncias, solicitudes y felicitaciones de origen del servidor público de la entidad, con el fin de ser atendidos por la Administración.
+                p Selecciona a continuación alguna de las dos opciones para consultar o crear una petición.
+            .infoSolicitudesPQRS
+                .infoSolicitudesPQRS__crear
+                    img(src="../image/newRegisterPQRS.png", alt="image-NewRegister").infoSolicitudesPQRS__crear--imgCrear
+                    .infoSolicitudesPQRS__crear--textCrear
+                        h3 Crea tu petición
+                        p Para crear una petición, selecciona la opción "Nueva solicitud" que se encuentra en la parte superior.
+                .infoSolicitudesPQRS__consultar
+                    img(src="../image/searchRegisterPQRS.png", alt="image-searchRegister").infoSolicitudesPQRS__crear--imgConsultar
+                    .infoSolicitudesPQRS__crear--textConsultar
+                        h3 Consulta tu petición
+                        p Para consultar tus peticiones, selecciona la opción "Ver registros" que se encuentra en la parte superior.
+
             
                 
