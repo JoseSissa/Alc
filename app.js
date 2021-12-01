@@ -144,7 +144,7 @@ app.get('/newRegisterpqrs', (req, res)=>{
             name: req.session.name,
             rol: req.session.tipoUser
         };
-        res.render('newRegisterPQRS', {autenticar})
+        res.render('newRegisterpqrs', {autenticar})
     }else{
         const autenticar = {
             icon: 'error',
@@ -163,23 +163,24 @@ app.post("/registerPQRS", async (req, res)=>{
     const peticion = req.body.requestType.toUpperCase();
     const entidad = req.body.entidad.toUpperCase();
     const emailForm = req.body.emailForm.toUpperCase();
-    const numberTel = req.body.numberTel.toUpperCase();
+    const numberTel = req.body.numberTel;
     const asunto = req.body.textAsunto.toUpperCase();
 
-    connection.query('INSERT INTO registerPQRS SET ?', {id:null, cc: req.session.numID, peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
+    connection.query('INSERT INTO registerpqrs SET ?', {id:null, cc: req.session.numID, peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
         if(error) {
             console.log('Error al registrar el PQRS, el error es: '+error)
         }else{
             const autenticar = {
-                alert: true,
+                name: req.session.name,
+                rol: req.session.tipoUser,
                 icon: 'success',
-                title: 'Buen trabajo!.',
-                text: 'Registro realizado satisfactoriamente.',
+                title: 'Perfecto',
+                text: 'Su solicitud se ha guardado satisfactoriamente.',
                 scButton: false,
-                timer: 2000,
-                ruta: 'indexUser'
+                timer: 1500,
+                ruta: 'indexUser' 
             }
-            res.render('indexUser', {o: JSON.stringify(autenticar)});  
+            res.render('newRegisterpqrs', {autenticar: JSON.stringify(autenticar)});
         };
     })
 });
@@ -198,9 +199,9 @@ app.get('/inicioAdmin', (req, res)=>{
     res.redirect('/');
 })
 
-app.get('/newRegisterpqrs', (req, res)=>{
-    res.render('newRegisterpqrs');
-});
+// app.get('/newRegisterpqrs', (req, res)=>{
+//     res.render('newRegisterpqrs');
+// });
 
 
 // Estableciendo el puerto de escucha

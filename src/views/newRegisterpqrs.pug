@@ -64,25 +64,17 @@ html(lang="es")
                         .campo__botonSubmitPQRS
                             input(disabled type="submit" value="Enviar Solicitud").botonSubmitPQRS#sendRegister
     
-    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11") 
     script(src="../js/scripts.js")
+    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
     script(type='text/javascript').
-        let x = !{o};
-        if (typeof x.alert != "undefined"){
-            Swal.fire({
-                icon: x.icon
-                title: x.title,
-                text: x.text,
-                showConfirmButton: x.scButton,
-                timer: x.timer
-            })
-            .then(()=>{
-                window.location = `/${x.ruta}`;
-            })
-        };
-        
-    
-
-//- 
-//- FALTA ARREGLAR LO DE GUARDAR EN LA BASE DE DATOS, EL ID AUTOINCREMENTAL
-//- 
+        let o = !{autenticar};
+        Swal.fire({
+            icon: o.icon,
+            title: o.title,
+            text: o.text,
+            showConfirmButton: o.scButton,
+            timer: o.timer
+        })
+        .then(()=>{
+            window.location = `/${o.ruta}`;
+        })
