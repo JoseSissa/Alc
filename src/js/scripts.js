@@ -1,7 +1,7 @@
 // Importación de sweetAlert
 
 
-// Validación de los compos
+// Validación de los compos del formulario
 const formRegisterPQRS = document.getElementById('formRegisterpqrs');
 const buttonRegisterPQRS = document.getElementById('sendRegister');
 buttonRegisterPQRS.setAttribute('disabled', true);
@@ -71,3 +71,22 @@ const validarForm = () =>{
         });
     }
 }
+
+
+// Uso de Axios para las peticiones a la db
+
+
+const datosRegistro = require('../../app.js');
+const botonObtenerRegistros = document.getElementById('botonObtenerRegistros');
+
+botonObtenerRegistros.addEventListener('click', ()=>{
+    console.log('Di click');
+    // axios({
+    //     method: 'GET',
+    //     url: 'https://jsonplaceholder.typicode.com/users'
+    // })
+    // .then(res=>{
+    //     console.log(res);
+    // })
+});
+

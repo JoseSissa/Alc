@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Ver Registros
+
+        link(rel="stylesheet", href="../css/styles.css")
+        link(rel="stylesheet", href="../css/normalize.css")
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
+    body.body 
+        header.header
+            a.header__logo(href='#')
+                img.logo(src='/resources/image/logo.jpg' alt='')
+            ul.buttons
+                li.buttons_menu: a(href="indexUser").buttons_menu-item Inicio
+                li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Solicitud
+                li.buttons_menu: a(href="verRegistros").buttons_menu-item Ver registros 
+                li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
+        main.main 
+            p Para ver todos los registros da click en el boton 
+            button(type="button")#botonObtenerRegistros Obtener Registros
+
+
+    script(src="https://unpkg.com/axios/dist/axios.min.js") 
+    script(src="../js/scripts.js")
+    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
+    script(type='text/javascript').
+        let o = !{autenticar};
+        Swal.fire({
+            icon: o.icon,
+            title: o.title,
+            text: o.text,
+            showConfirmButton: o.scButton,
+            timer: o.timer
+        })
+        .then(()=>{
+            window.location = `/${o.ruta}`;
+        })

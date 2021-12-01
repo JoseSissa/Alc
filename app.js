@@ -185,6 +185,37 @@ app.post("/registerPQRS", async (req, res)=>{
     })
 });
 
+app.get('/verRegistros', (req, res)=>{
+    if(req.session.loggedin == true){
+        const autenticar = {
+            login: true,
+            name: req.session.name,
+            rol: req.session.tipoUser
+        };
+
+        connection.query('SELECT * FROM registerpqrs', (error, datosRegistro)=>{
+            if(error){
+                throw error;
+            }else{
+                module.exports = datosRegistro;
+            }
+        });
+
+
+
+        res.render('verRegistros', {autenticar})
+    }else{
+        const autenticar = {
+            icon: 'error',
+            title: 'Error',
+            text: 'No puedes acceder a esta dirección si no has iniciado sesión.',
+            scButton: false,
+            timer: 2000,
+            ruta: 'login'
+        };
+        res.render('login', {o: JSON.stringify(autenticar)});
+    }
+});
 
 // Logout
 app.get('/logout', (req, res)=>{
