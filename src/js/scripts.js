@@ -1,4 +1,4 @@
-// Importación de sweetAlert
+// Importación 
 
 
 // Validación de los compos del formulario
@@ -38,7 +38,6 @@ campoEntidad.addEventListener('change', (e)=>{
     if (e.target.value != 'select') validateFormRegister.entidad=true
     else validateFormRegister.entidad=false;
 });
-
 email.addEventListener('change', (e)=>{
     if(e.target.value.trim().length > 0) validateFormRegister.email=true
     else validateFormRegister.email=false;
@@ -76,17 +75,17 @@ const validarForm = () =>{
 // Uso de Axios para las peticiones a la db
 
 
+
 const datosRegistro = require('../../app.js');
 const botonObtenerRegistros = document.getElementById('botonObtenerRegistros');
 
 botonObtenerRegistros.addEventListener('click', ()=>{
-    console.log('Di click');
-    // axios({
-    //     method: 'GET',
-    //     url: 'https://jsonplaceholder.typicode.com/users'
-    // })
-    // .then(res=>{
-    //     console.log(res);
-    // })
+    axios({
+        method: 'GET',
+        url: peticion,
+    })
+    .then(res=>{
+        console.log(res);
+    })
 });
 

@@ -254,6 +254,7 @@ body{
 }
 .asunto{
     resize: none;
+    padding: 15px;
 }
 
 

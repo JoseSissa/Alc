@@ -1,6 +1,3 @@
-//Se establece la conexión con la db:
-const express = require('express');
-
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
