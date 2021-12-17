@@ -1,7 +1,7 @@
-
-const loginController = {};
 const bcrypt = require('bcryptjs');
 const connection = require('../database/connection');
+
+const loginController = {};
 
 loginController.inicio = (req, res)=>{
     res.render('login');

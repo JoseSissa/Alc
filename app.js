@@ -32,11 +32,10 @@ app.use(session({
 }));
 // const connection = require('./database/connection');
 
-app.use(require('./routes/login.router'));
 
-// app.get('/', (req, res)=>{
-//     res.render(login);
-// });
+app.use(require('./routes/login.router'));
+app.use(require('./routes/index.router'));
+
 
 
 // routerApi(app);
