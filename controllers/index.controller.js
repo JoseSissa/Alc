@@ -9,3 +9,4 @@ indexController.usuario = (req, res)=>{
 indexController.administrador = (req, res)=>{
     res.render('indexAdmin');
 };
+//para ver camvios
