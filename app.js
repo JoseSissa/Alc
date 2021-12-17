@@ -21,7 +21,7 @@ app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/src'));
 
 //Invocamos al módulo de hashing para el password
-const bcryptjs = require('bcryptjs');
+// const bcryptjs = require('bcryptjs');
 
 //Configuramos las variables de sesión
 let session =  require('express-session');
@@ -30,14 +30,16 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
+// const connection = require('./database/connection');
+
+app.use(require('./routes/login.router'));
+
+// app.get('/', (req, res)=>{
+//     res.render(login);
+// });
 
 
-//Se invoca el módulo de conexión de la db.
-const connection = require('./database/connection');
-
-const routerApi = require('./routes/index');
-
-routerApi(app, connection);
+// routerApi(app);
 
 
 

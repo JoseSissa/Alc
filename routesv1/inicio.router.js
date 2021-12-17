@@ -1,24 +1,30 @@
 const express = require('express');
 const router = express.Router();
 
-const inicioService = require('../services/inicio.service');
-
-router.get('/', inicioService.iniciar );
-
-router.post('/login', async (req, res, next)=>{
-    console.log('ENTRÉ AL LOG DE ROUTER POST');
-    try {
-        const { user, pass } = req.body;
-        console.log(`USUARIO ${user} CONTRASEÑA ${pass}`);
-        const sweetAlert = await inicioService.login(user, pass);
-        console.log(`HE EJECUTADO LA FUNCION Y TENGO LOS DATOS ${sweetAlert}`);
-        res.render('login', {o: JSON.stringify(sweetAlert)});
-    } catch (error) {
-        next(error)
-        console.log('Error en el try catch del post');
-    };
+router.get('/login', (req, res)=>{
+    res.render('login');
 });
+
 module.exports = router;
+
+// const inicioService = require('../services/inicio.service');
+
+// router.get('/login', inicioService.iniciar());
+
+// router.post('/login', async (req, res, next)=>{
+//     console.log('ENTRÉ AL LOG DE ROUTER POST');
+//     try {
+//         const { user, pass } = req.body;
+//         console.log(`USUARIO ${user} CONTRASEÑA ${pass}`);
+//         const sweetAlert = await inicioService.login(user, pass);
+//         console.log(`HE EJECUTADO LA FUNCION Y TENGO LOS DATOS ${sweetAlert}`);
+//         res.render('login', );
+//     } catch (error) {
+//         next(error)
+//         console.log('Error en el try catch del post');
+//     };
+// });
+// module.exports = router;
 
 
 

@@ -36,6 +36,7 @@ html(lang='en')
         icon: x.icon,
         showConfirmButton: x.scButton,
         timer: x.timer
-      }).then(()=>{
-        window.location= `/${x.ruta}`;
+      })
+      .then(()=>{
+        window.location+= `/${x.ruta}`;
       });
