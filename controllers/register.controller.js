@@ -1,8 +1,8 @@
-const indexController = {};
+const registerController = {};
 
-indexController.usuario = (req, res)=>{
-    if (req.session.rol === 'USUARIO' ){
-        res.render('user', { name:req.session.name, user: req.session.rol });
+registerController.nuevoPqrs = (req, res)=>{
+    if(req.session.rol === 'USUARIO' || req.session.rol === 'ADMINISTRADOR'){
+        res.render('newRegisterpqrs', { name:req.session.name, user: req.session.rol })
     }else{
         const sweetAlert = {
             control: true,
@@ -17,9 +17,9 @@ indexController.usuario = (req, res)=>{
     };
 };
 
-indexController.administrador = (req, res)=>{
-    if (req.session.rol === 'ADMINSTRADOR' ){
-        res.render('admin', { name:req.session.name, user: req.session.rol })
+registerController.verRegistros = (req, res)=>{
+    if(req.session.rol === 'USUARIO'){
+        res.render('verRegistros', { name:req.session.name, user: req.session.rol })
     }else{
         const sweetAlert = {
             control: true,
@@ -34,5 +34,4 @@ indexController.administrador = (req, res)=>{
     };
 };
 
-
-module.exports = indexController;
+module.exports = registerController;

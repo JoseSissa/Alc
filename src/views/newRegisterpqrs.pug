@@ -16,13 +16,13 @@ html(lang="es")
             a.header__logo(href='#')
                 img.logo(src='/resources/image/logo.jpg' alt='')
             ul.buttons
-                li.buttons_menu: a(href="indexUser").buttons_menu-item Inicio
+                li.buttons_menu: a(href="user").buttons_menu-item Inicio
                 li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Solicitud
                 li.buttons_menu: a(href="verRegistros").buttons_menu-item Ver registros 
                 li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
         main.main 
             .tituloBienvenida
-                h3.titutoBienvenida__user= `Bienvenida(o): ${autenticar.name} ${autenticar.rol}`
+                h3.titutoBienvenida__user= `Bienvenida(o): ${name} ${user}`
             section.seccion__pqrs#pqrs 
                 .seccion__pqrs--header#pqrsHeader 
                     h2 NUEVO REGISTRO DE PETICIÓN
@@ -67,14 +67,14 @@ html(lang="es")
     script(src="../js/scripts.js")
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
     script(type='text/javascript').
-        let o = !{autenticar};
+        let x = !{o};
         Swal.fire({
-            icon: o.icon,
-            title: o.title,
-            text: o.text,
-            showConfirmButton: o.scButton,
-            timer: o.timer
+            icon: x.icon,
+            title: x.title,
+            text: x.text,
+            showConfirmButton: x.scButton,
+            timer: x.timer
         })
         .then(()=>{
-            window.location = `/${o.ruta}`;
+            window.location = `/${x.ruta}`;
         })

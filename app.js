@@ -35,13 +35,8 @@ app.use(session({
 
 app.use(require('./routes/login.router'));
 app.use(require('./routes/index.router'));
-
-
-
-// routerApi(app);
-
-
-
+app.use(require('./routes/register.router'));
+app.use(require('./routes/logout.router'));
 
 
 
@@ -149,11 +144,7 @@ app.use(require('./routes/index.router'));
 //     }
 // });
 
-// // Logout
-// app.get('/logout', (req, res)=>{
-//     req.session.destroy();
-//     res.redirect('login');
-// });
+
 
 // app.get('/indexUser', (req, res)=>{
 //     res.redirect('/');

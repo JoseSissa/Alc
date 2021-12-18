@@ -16,7 +16,7 @@ html(lang="es")
             a.header__logo(href='#')
                 img.logo(src='/resources/image/logo.jpg' alt='')
             ul.buttons
-                li.buttons_menu: a(href="indexUser").buttons_menu-item Inicio
+                li.buttons_menu: a(href="user").buttons_menu-item Inicio
                 li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Solicitud
                 li.buttons_menu: a(href="verRegistros").buttons_menu-item Ver registros 
                 li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
@@ -24,7 +24,7 @@ html(lang="es")
             //- -const name = autenticar.name
             //- -const rol = autenticar.rol
             .tituloBienvenida
-                h3.titutoBienvenida__user= `Hola ${user}`
+                h3.titutoBienvenida__user= `Hola ${name} tipo de usuario ${user}`
                 //- h3.titutoBienvenida__user= `Bienvenida(o): ${autenticar.name} ${autenticar.rol}`
             .textoInformacion 
                 p Bienvenido(a), a este sistema de información diseñado e implementado por la Alcaldía de Villa del Rosario como instrumento tecnológico para registrar peticiones, quejas, reclamos, sugerencias, denuncias, solicitudes y felicitaciones de origen del servidor público de la entidad, con el fin de ser atendidos por la Administración.

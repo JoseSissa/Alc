@@ -16,14 +16,15 @@ html(lang="en")
             a.header__logo(href='#')
                 img.logo(src='/resources/image/logo.jpg' alt='')
             ul.buttons
-                li.buttons_menu: a(href="inicioAdmin").buttons_menu-item Inicio
+                li.buttons_menu: a(href="admin").buttons_menu-item Inicio
+                li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Solicitud
                 li.buttons_menu: a(href="#").buttons_menu-item Ver registros 
                 li.buttons_menu: a(href="register").buttons_menu-item Nuevo usuario
                 li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
         main.main 
             section#name_User.name_user 
                 h1 Ingresado
-                h1= `El usuario conectado es: ${autenticar.name} y el tipo de usuario es ${autenticar.rol}`
+                h1= `El usuario conectado es: ${user} y el tipo de usuario es`
             
         
 

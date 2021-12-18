@@ -29,14 +29,14 @@ html(lang='en')
 
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
     script(type='text/javascript').
-      let x = !{o};
-      Swal.fire({
-        title: x.title,
-        text: x.text,
-        icon: x.icon,
-        showConfirmButton: x.scButton,
-        timer: x.timer
-      })
-      .then(()=>{
-        window.location= `http://localhost:3000/${x.ruta}`;
-      });
+        let x = !{o};
+        Swal.fire({
+            icon: x.icon,
+            title: x.title,
+            text: x.text,
+            showConfirmButton: x.scButton,
+            timer: x.timer
+        })
+        .then(()=>{
+            window.location = `/${x.ruta}`;
+        })
