@@ -14,8 +14,6 @@ const campoTel = document.getElementById('numberTel');
 const campoAsunto = document.getElementById('asunto');
 const terminos = document.getElementById('terminos');
 
-console.log(campoTel.textContent);
-
 let validateFormRegister = {
     requisito : false,
     entidad : false,
@@ -68,24 +66,5 @@ const validarForm = () =>{
             title: 'No podemos enviar la solicutud',
             text: 'Por favor, llena todos los campos requeridos.',
         });
-    }
-}
-
-
-// Uso de Axios para las peticiones a la db
-
-
-
-const datosRegistro = require('../../app.js');
-const botonObtenerRegistros = document.getElementById('botonObtenerRegistros');
-
-botonObtenerRegistros.addEventListener('click', ()=>{
-    axios({
-        method: 'GET',
-        url: peticion,
-    })
-    .then(res=>{
-        console.log(res);
-    })
-});
-
+    };
+};

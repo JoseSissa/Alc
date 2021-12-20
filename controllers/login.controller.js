@@ -26,6 +26,7 @@ loginController.iniciarSesion = async (req, res) =>{
             }else{
                 req.session.name = results[0].nombres;
                 req.session.rol = results[0].rol;
+                req.session.cc = results[0].cc;
                 const sweetAlert = {
                     control: true,
                     icon: 'success',

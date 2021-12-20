@@ -87,29 +87,7 @@ app.use(require('./routes/logout.router'));
 
 // app.post("/registerPQRS", async (req, res)=>{
     
-//     const peticion = req.body.requestType.toUpperCase();
-//     const entidad = req.body.entidad.toUpperCase();
-//     const emailForm = req.body.emailForm.toUpperCase();
-//     const numberTel = req.body.numberTel;
-//     const asunto = req.body.textAsunto.toUpperCase();
 
-//     connection.query('INSERT INTO registerpqrs SET ?', {id:null, cc: req.session.numID, peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
-//         if(error) {
-//             console.log('Error al registrar el PQRS, el error es: '+error)
-//         }else{
-//             const autenticar = {
-//                 name: req.session.name,
-//                 rol: req.session.tipoUser,
-//                 icon: 'success',
-//                 title: 'Perfecto',
-//                 text: 'Su solicitud se ha guardado satisfactoriamente.',
-//                 scButton: false,
-//                 timer: 1500,
-//                 ruta: 'indexUser' 
-//             }
-//             res.render('newRegisterpqrs', {autenticar: JSON.stringify(autenticar)});
-//         };
-//     })
 // });
 
 // app.get('/verRegistros', (req, res)=>{

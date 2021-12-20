@@ -16,7 +16,7 @@ html(lang="en")
             a.header__logo(href='#')
                 img.logo(src='/resources/image/logo.jpg' alt='')
             ul.buttons
-                li.buttons_menu: a(href="user").buttons_menu-item Inicio
+                li.buttons_menu: a(href="user").buttons_menu-item#probar Inicio
                 li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Solicitud
                 li.buttons_menu: a(href="verRegistros").buttons_menu-item Ver registros 
                 li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
@@ -25,9 +25,8 @@ html(lang="en")
             button(type="button")#botonObtenerRegistros Obtener Registros
 
 
-
-    script(src="https://unpkg.com/axios/dist/axios.min.js") 
-    script(src="../js/scripts.js")
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js") 
+    script(src="../js/axios.js")
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
     script(type='text/javascript').
         let o = !{autenticar};

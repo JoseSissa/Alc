@@ -1,3 +1,4 @@
+const connection = require('../database/connection');
 const registerController = {};
 
 registerController.nuevoPqrs = (req, res)=>{
@@ -17,6 +18,30 @@ registerController.nuevoPqrs = (req, res)=>{
     };
 };
 
+registerController.registrarPQRS = (req, res)=>{
+    const peticion = req.body.requestType.toUpperCase();
+    const entidad = req.body.entidad.toUpperCase();
+    const emailForm = req.body.emailForm.toUpperCase();
+    const numberTel = req.body.numberTel;
+    const asunto = req.body.textAsunto.toUpperCase();
+
+    connection.query('INSERT INTO registerpqrs SET ?', {id:null, cc: req.session.cc, peticion:peticion, entidad:entidad, email:emailForm, numeroTel:numberTel, asunto:asunto}, async (error, results)=>{
+        if(error) {
+            console.log('Error al registrar el PQRS, el error es: '+error)
+        }else{
+            const sweetAlert = {
+                icon: 'success',
+                title: 'Perfecto',
+                text: 'Su solicitud se ha guardado satisfactoriamente.',
+                scButton: false,
+                timer: 1500,
+                ruta: 'user'
+            }
+            res.render('newRegisterpqrs', {o: JSON.stringify(sweetAlert)});
+        };
+    });
+};
+
 registerController.verRegistros = (req, res)=>{
     if(req.session.rol === 'USUARIO'){
         res.render('verRegistros', { name:req.session.name, user: req.session.rol })
@@ -33,5 +58,11 @@ registerController.verRegistros = (req, res)=>{
         res.render('login', {o: JSON.stringify(sweetAlert)});
     };
 };
+
+registerController.obtenerRegistros = new Promise((resolve, reject)=>{
+        connection.query('SELECT * FROM registerpqrs', (err, results)=>{
+            resolve(results);
+        });
+    });
 
 module.exports = registerController;
