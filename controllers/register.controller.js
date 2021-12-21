@@ -1,6 +1,8 @@
 const connection = require('../database/connection');
 const registerController = {};
 
+const boom = require('@hapi/boom');
+
 registerController.nuevoPqrs = (req, res)=>{
     if(req.session.rol === 'USUARIO' || req.session.rol === 'ADMINISTRADOR'){
         res.render('newRegisterpqrs', { name:req.session.name, user: req.session.rol })
@@ -59,10 +61,14 @@ registerController.verRegistros = (req, res)=>{
     };
 };
 
-registerController.obtenerRegistros = new Promise((resolve, reject)=>{
-        connection.query('SELECT * FROM registerpqrs', (err, results)=>{
-            resolve(results);
-        });
+registerController.obtenerRegistros = (req, res, next)=>{
+    connection.query('SELECT * FROM registerpqrs WHERE cc = ?', [req.session.cc], (err, results)=>{
+        if(err){
+            throw boom.badData('Error request. ObtenerRegistros.');
+        }else{
+            res.send(results);
+        }
     });
+};
 
 module.exports = registerController;

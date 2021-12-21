@@ -20,8 +20,7 @@ app.set('views', path.join(__dirname, 'src/views'));
 app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/src'));
 
-//Invocamos al módulo de hashing para el password
-// const bcryptjs = require('bcryptjs');
+
 
 //Configuramos las variables de sesión
 let session =  require('express-session');
@@ -37,6 +36,7 @@ app.use(require('./routes/login.router'));
 app.use(require('./routes/index.router'));
 app.use(require('./routes/register.router'));
 app.use(require('./routes/logout.router'));
+
 
 
 

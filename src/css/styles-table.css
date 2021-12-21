@@ -1,0 +1,43 @@
+.section__button{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 100px;
+    margin-bottom: 30px;
+}
+.section__button p {
+    margin-right: 50px;
+}
+
+.section__registers{
+    width: 100%;
+}
+.registers{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    text-align:left;
+}
+.registers__title{
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+.registers__head{
+    background-color: steelblue;
+}
+.registers__body{
+    border: 1px solid black;
+}
+.fila{
+    /* border: 1px solid black; */
+}
+.column{
+    padding: 6px;
+    border: 1px solid black;
+}
+.fila td{
+    background-color: rgba(150, 150, 150, 0.4);
+}
