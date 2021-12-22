@@ -20,10 +20,11 @@
     margin-right: auto;
     border-collapse: collapse;
     text-align:left;
+    font-size: 16px;
 }
 .registers__title{
     font-weight: bold;
-    margin-bottom: 13px;
+    margin-bottom: 20px;
 }
 .registers__head{
     background-color: steelblue;
@@ -37,7 +38,5 @@
 .column{
     padding: 6px;
     border: 1px solid black;
-}
-.fila td{
     background-color: rgba(150, 150, 150, 0.4);
 }

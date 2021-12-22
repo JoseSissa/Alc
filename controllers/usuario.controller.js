@@ -1,10 +1,25 @@
 const connection = require('../database/connection');
-const registerController = {};
+const usuarioController = {};
 
-const boom = require('@hapi/boom');
+usuarioController.usuario = (req, res)=>{
+    if (req.session.rol === 'USUARIO' ){
+        res.render('user', { name:req.session.name, user: req.session.rol });
+    }else{
+        const sweetAlert = {
+            control: true,
+            title: 'Error',
+            text: 'Debes iniciar sesión para usar cualquier funcionalidad.',
+            icon: 'error',
+            scButton: false,
+            timer: 2000,
+            ruta: 'login' 
+        };
+        res.render('login', {o: JSON.stringify(sweetAlert)});
+    };
+};
 
-registerController.nuevoPqrs = (req, res)=>{
-    if(req.session.rol === 'USUARIO' || req.session.rol === 'ADMINISTRADOR'){
+usuarioController.nuevoPqrs = (req, res)=>{
+    if(req.session.rol === 'USUARIO'){
         res.render('newRegisterpqrs', { name:req.session.name, user: req.session.rol })
     }else{
         const sweetAlert = {
@@ -20,7 +35,7 @@ registerController.nuevoPqrs = (req, res)=>{
     };
 };
 
-registerController.registrarPQRS = (req, res)=>{
+usuarioController.registrarPQRS = (req, res)=>{
     const peticion = req.body.requestType.toUpperCase();
     const entidad = req.body.entidad.toUpperCase();
     const emailForm = req.body.emailForm.toUpperCase();
@@ -44,7 +59,7 @@ registerController.registrarPQRS = (req, res)=>{
     });
 };
 
-registerController.verRegistros = (req, res)=>{
+usuarioController.verRegistros = (req, res)=>{
     if(req.session.rol === 'USUARIO'){
         res.render('verRegistros', { name:req.session.name, user: req.session.rol })
     }else{
@@ -61,14 +76,4 @@ registerController.verRegistros = (req, res)=>{
     };
 };
 
-registerController.obtenerRegistros = (req, res, next)=>{
-    connection.query('SELECT * FROM registerpqrs WHERE cc = ?', [req.session.cc], (err, results)=>{
-        if(err){
-            throw boom.badData('Error request. ObtenerRegistros.');
-        }else{
-            res.send(results);
-        }
-    });
-};
-
-module.exports = registerController;
+module.exports = usuarioController;

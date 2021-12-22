@@ -8,6 +8,7 @@ html(lang="en")
 
         link(rel="stylesheet", href="../css/styles.css")
         link(rel="stylesheet", href="../css/normalize.css")
+        link(rel="stylesheet", href="../css/styles-table.css")
         link(rel='preconnect' href='https://fonts.googleapis.com')
         link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
         link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
@@ -16,18 +17,33 @@ html(lang="en")
             a.header__logo(href='#')
                 img.logo(src='/resources/image/logo.jpg' alt='')
             ul.buttons
-                li.buttons_menu: a(href="user").buttons_menu-item Inicio
-                li.buttons_menu: a(href="newRegisterpqrs").buttons_menu-item Nuevo Solicitud
-                li.buttons_menu: a(href="verRegistros").buttons_menu-item Ver registros 
+                li.buttons_menu: a(href="admin").buttons_menu-item Inicio
+                li.buttons_menu: a(href="nuevaSolicitud-A").buttons_menu-item Nuevo Solicitud
+                li.buttons_menu: a(href="vertodosRegistros").buttons_menu-item Ver registros 
+                li.buttons_menu: a(href="nuevoUsuario").buttons_menu-item Nuevo usuario
                 li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
         main.main 
-            p Para ver todos los registros da click en el boton 
-            button(type="button")#botonObtenerRegistros Obtener Registros
+            section.section__button
+                p Para ver todos los registros da click en el boton 
+                button(type="button")#botonObtenerRegistros Obtener Registros
+
+            section.section__registers
+                table.registers
+                    caption.registers__title REGISTROS DE LAS PETICIONES QUE USTED HA REALIZADO
+                    thead.registers__head
+                        tr.fila
+                            th.column Petición
+                            th.column Entidad
+                            th.column Email
+                            th.column Teléfono
+                            th.column Asunto
+                            th.column Respuesta
+                    tbody.registers__body#registersBody
+                        tr.fila
 
 
-
-    script(src="https://unpkg.com/axios/dist/axios.min.js") 
-    script(src="../js/scripts.js")
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js") 
+    script(src="../js/axios.js")
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
     script(type='text/javascript').
         let o = !{autenticar};

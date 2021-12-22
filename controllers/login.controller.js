@@ -37,7 +37,7 @@ loginController.iniciarSesion = async (req, res) =>{
                     ruta: ''
                 };
                 if (req.session.rol === 'ADMINISTRADOR') sweetAlert.ruta = 'admin'
-                else sweetAlert.ruta = 'user';  
+                else sweetAlert.ruta = 'user';
                 res.render('login', {o: JSON.stringify(sweetAlert)});                
             };
         });

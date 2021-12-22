@@ -1,0 +1,81 @@
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Nuevo Registro
+
+        link(rel="stylesheet", href="../css/styles.css")
+        link(rel="stylesheet", href="../css/normalize.css")
+        link(rel='preconnect' href='https://fonts.googleapis.com')
+        link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+        link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap' rel='stylesheet')
+
+    body.body
+        header.header
+            a.header__logo(href='#')
+                img.logo(src='/resources/image/logo.jpg' alt='')
+            ul.buttons
+                li.buttons_menu: a(href="admin").buttons_menu-item Inicio
+                li.buttons_menu: a(href="nuevaSolicitud-A").buttons_menu-item Nuevo Solicitud
+                li.buttons_menu: a(href="vertodosRegistros").buttons_menu-item Ver registros 
+                li.buttons_menu: a(href="nuevoUsuario").buttons_menu-item Nuevo usuario
+                li.buttons_menu: a(href="logout").buttons_menu-item Desconectarse
+        main.main 
+            .tituloBienvenida
+                h3.titutoBienvenida__user= `Bienvenida(o): ${name} ${user}`
+            section.seccion__pqrs#pqrs 
+                .seccion__pqrs--header#pqrsHeader 
+                    h2 NUEVO REGISTRO DE PETICIÓN
+                    p Diligenciar esta información será útil para direccionar tu petición a la dependencia competente
+                .seccion__pqrs--cuerpo
+                    form(action="/registrarPQRSAdmin", method="POST")#formRegisterpqrs
+                        .campo__peticion
+                            p Selecciones el tipo de petición
+                            select#request.pqrs__header-request(name="requestType") 
+                                option#select-empty(value="select") - Tipo de petición -
+                                option(value="sugerencia") Sugerencia
+                                option(value="felicitacion") Felicitación
+                                option(value="reclamo") Reclamo
+                                option(value="denuncia") Denuncia
+                                option(value="queja") Queja
+                        .campo__entidad
+                            p Seleccione la entidad destino 
+                            select#entidad.pqrs__header-entidad(name="entidad") 
+                                option#select-empty(value="select") - Selecciones la entidad -
+                                option(value="salud") Salud
+                                option(value="hacienda") Hacienda
+                                option(value="sistemas") Sistemas
+                                option(value="gobierno") Gobierno
+                                option(value="almacen") Almacén
+                                option(value="almacen") Nómina
+                        .campo__email
+                            p Correo electrónico:
+                            input(type="email" name="emailForm")#email.input__email
+                        .campo__telefono
+                            p Teléfono:
+                            input(type="number" name="numberTel")#numberTel.input__tel
+                        .campo__asunto
+                            p.campo__asunto--texto Redacte el asunto de su solicitud:
+                            label(for="textAsunto").asunto
+                                textarea(name="textAsunto", cols="50", rows="7").asunto#asunto
+                        .campo__terminos 
+                            label(for="terminos") Acepto el uso de mi información personal por parte de la entidad.
+                            input(type="checkbox" name="terminos")#terminos.terminos
+                        .campo__botonSubmitPQRS
+                            input(disabled type="submit" value="Enviar Solicitud").botonSubmitPQRS#sendRegister
+    
+    script(src="../js/scripts.js")
+    script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")
+    script(type='text/javascript').
+        let x = !{o};
+        Swal.fire({
+            icon: x.icon,
+            title: x.title,
+            text: x.text,
+            showConfirmButton: x.scButton,
+            timer: x.timer
+        })
+        .then(()=>{
+            window.location = `/${x.ruta}`;
+        })
