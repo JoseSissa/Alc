@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/styles.css?t=1637526684496">
-    <link rel="stylesheet" href="../css/normalize.css?t=1637526684496">
+    <link rel="stylesheet" href="/resources/css/styles-min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet">
@@ -20,10 +19,10 @@
             <h2 class="login__header--title">Inicia sesión</h2>
           </div>
           <div class="login__body">
-            <form class="form__login" action="/auth" method="POST">
+            <form class="form__login" action="/login" method="post">
               <input class="login__input" id="user" type="text" name="user" placeholder="Cédula" required>
               <input class="login__input" id="pass" type="password" name="pass" placeholder="Contraseña" required>
-              <input class="button" id="submit" type="submit" value="Ingresa">
+              <input class="button" id="submitLogin" type="submit" value="Ingresa">
             </form>
             <p>Si aun no estas registrado: Contacta con un administrador</p>
           </div>
@@ -33,15 +32,15 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript">let x = ;
       Swal.fire({
-        title: x.title,
-        text: x.text,
-        icon: x.icon,
-        showConfirmButton: x.scButton,
-        timer: x.timer
-      }).then(()=>{
-        window.location= `/${x.ruta}`;
-      });
+          icon: x.icon,
+          title: x.title,
+          text: x.text,
+          showConfirmButton: x.scButton,
+          timer: x.timer
+      })
+      .then(()=>{
+          window.location = `/${x.ruta}`;
+      })
     </script>
   </body>
 </html>
-

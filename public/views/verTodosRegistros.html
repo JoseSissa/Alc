@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Registros</title>
+    <link rel="stylesheet" href="../css/styles.css?t=1640187966339">
+    <link rel="stylesheet" href="../css/normalize.css?t=1640187966339">
+    <link rel="stylesheet" href="../css/styles-table.css?t=1640187966339">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body class="body"> 
+    <header class="header"><a class="header__logo" href="#"><img class="logo" src="/resources/image/logo.jpg" alt=""></a>
+      <ul class="buttons">
+        <li class="buttons_menu"><a class="buttons_menu-item" href="admin">Inicio</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="nuevaSolicitud-A">Nuevo Solicitud</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="vertodosRegistros">Ver registros </a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="nuevoUsuario">Nuevo usuario</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="logout">Desconectarse</a></li>
+      </ul>
+    </header>
+    <main class="main"> 
+      <section class="section__button">
+        <p>Para ver todos los registros da click en el boton </p>
+        <button type="button" id="botonObtenerRegistros">Obtener Registros</button>
+      </section>
+      <section class="section__registers">
+        <table class="registers">
+          <caption class="registers__title">REGISTROS DE LAS PETICIONES QUE USTED HA REALIZADO</caption>
+          <thead class="registers__head">
+            <tr class="fila">
+              <th class="column">Petición</th>
+              <th class="column">Entidad</th>
+              <th class="column">Email</th>
+              <th class="column">Teléfono</th>
+              <th class="column">Asunto</th>
+              <th class="column">Respuesta</th>
+            </tr>
+          </thead>
+          <tbody class="registers__body" id="registersBody">
+            <tr class="fila"></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"> </script>
+  <script src="../js/axios.js?t=1640187966339"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript">let o = ;
+    Swal.fire({
+        icon: o.icon,
+        title: o.title,
+        text: o.text,
+        showConfirmButton: o.scButton,
+        timer: o.timer
+    })
+    .then(()=>{
+        window.location = `/${o.ruta}`;
+    })
+  </script>
+</html>

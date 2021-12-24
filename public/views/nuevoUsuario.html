@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Usuarios </title>
-    <link rel="stylesheet" href="../css/styles.css?t=1637526684519">
-    <link rel="stylesheet" href="../css/normalize.css?t=1637526684519">
+    <link rel="stylesheet" href="../css/styles.css?t=1640187966151">
+    <link rel="stylesheet" href="../css/normalize.css?t=1640187966151">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet">
@@ -14,10 +14,11 @@
   <body class="body">
     <header class="header"><a class="header__logo" href="#"><img class="logo" src="/resources/image/logo.jpg" alt=""></a>
       <ul class="buttons">
-        <li class="buttons_menu"><a class="buttons_menu-item" href="/resources/views/indexAdmin.html">Inicio</a></li>
-        <li class="buttons_menu"><a class="buttons_menu-item" href="#">Ver registros </a></li>
-        <li class="buttons_menu"><a class="buttons_menu-item" href="/resources/views/register.html">Nuevo usuario</a></li>
-        <li class="buttons_menu"><a class="buttons_menu-item" href="/logout">Desconectarse</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="admin">Inicio</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="nuevaSolicitud-A">Nuevo Solicitud</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="vertodosRegistros">Ver registros </a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="nuevoUsuario">Nuevo usuario</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="logout">Desconectarse</a></li>
       </ul>
     </header>
     <main class="main">
@@ -27,7 +28,7 @@
             <h2 class="register__header--title">Ingresa los siguientes datos </h2>
           </div>
           <div class="register__body">
-            <form action="/register" method="POST"> 
+            <form action="/nuevoUsuario" method="POST"> 
               <input class="login__input" id="cc" type="number" name="cc" placeholder="Cédula" required="">
               <input class="login__input" id="apellido1" type="text" name="apellido1" placeholder="Primer apellido" required="">
               <input class="login__input" id="apellido2" type="text" name="apellido2" placeholder="Segundo apellido" required="">
@@ -46,6 +47,6 @@
       </section>
     </main>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"> </script>
-    <script src="../js/scripts.js?t=1637526684519"> </script>
+    <script src="../js/scripts.js?t=1640187966151"> </script>
   </body>
 </html>

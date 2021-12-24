@@ -1,0 +1,98 @@
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nuevo Registro</title>
+    <link rel="stylesheet" href="../css/styles.css?t=1640187966021"/>
+    <link rel="stylesheet" href="../css/normalize.css?t=1640187966021"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&amp;display=swap" rel="stylesheet"/>
+  </head>
+  <body class="body">
+    <header class="header"><a class="header__logo" href="#"><img class="logo" src="/resources/image/logo.jpg" alt=""/></a>
+      <ul class="buttons">
+        <li class="buttons_menu"><a class="buttons_menu-item" href="admin">Inicio</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="nuevaSolicitud-A">Nuevo Solicitud</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="vertodosRegistros">Ver registros </a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="nuevoUsuario">Nuevo usuario</a></li>
+        <li class="buttons_menu"><a class="buttons_menu-item" href="logout">Desconectarse</a></li>
+      </ul>
+    </header>
+    <main class="main"> 
+      <div class="tituloBienvenida">
+        <h3 class="titutoBienvenida__user">Bienvenida(o): undefined undefined</h3>
+      </div>
+      <section class="seccion__pqrs" id="pqrs"> 
+        <div class="seccion__pqrs--header" id="pqrsHeader"> 
+          <h2>NUEVO REGISTRO DE PETICIÓN</h2>
+          <p>Diligenciar esta información será útil para direccionar tu petición a la dependencia competente</p>
+        </div>
+        <div class="seccion__pqrs--cuerpo">
+          <form action="/registrarPQRSAdmin" method="POST" id="formRegisterpqrs">
+            <div class="campo__peticion">
+              <p>Selecciones el tipo de petición</p>
+              <select class="pqrs__header-request" id="request" name="requestType"> 
+                <option id="select-empty" value="select">- Tipo de petición -</option>
+                <option value="sugerencia">Sugerencia</option>
+                <option value="felicitacion">Felicitación</option>
+                <option value="reclamo">Reclamo</option>
+                <option value="denuncia">Denuncia</option>
+                <option value="queja">Queja</option>
+              </select>
+            </div>
+            <div class="campo__entidad">
+              <p>Seleccione la entidad destino </p>
+              <select class="pqrs__header-entidad" id="entidad" name="entidad"> 
+                <option id="select-empty" value="select">- Selecciones la entidad -</option>
+                <option value="salud">Salud</option>
+                <option value="hacienda">Hacienda</option>
+                <option value="sistemas">Sistemas</option>
+                <option value="gobierno">Gobierno</option>
+                <option value="almacen">Almacén</option>
+                <option value="almacen">Nómina</option>
+              </select>
+            </div>
+            <div class="campo__email">
+              <p>Correo electrónico:</p>
+              <input class="input__email" type="email" name="emailForm" id="email"/>
+            </div>
+            <div class="campo__telefono">
+              <p>Teléfono:</p>
+              <input class="input__tel" type="number" name="numberTel" id="numberTel"/>
+            </div>
+            <div class="campo__asunto">
+              <p class="campo__asunto--texto">Redacte el asunto de su solicitud:</p>
+              <label class="asunto" for="textAsunto">
+                <textarea class="asunto" name="textAsunto" cols="50" rows="7" id="asunto"></textarea>
+              </label>
+            </div>
+            <div class="campo__terminos"> 
+              <label for="terminos">Acepto el uso de mi información personal por parte de la entidad.</label>
+              <input class="terminos" type="checkbox" name="terminos" id="terminos"/>
+            </div>
+            <div class="campo__botonSubmitPQRS">
+              <input class="botonSubmitPQRS" disabled="disabled" type="submit" value="Enviar Solicitud" id="sendRegister"/>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script src="../js/scripts.js?t=1640187966021"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript">let x = ;
+    Swal.fire({
+        icon: x.icon,
+        title: x.title,
+        text: x.text,
+        showConfirmButton: x.scButton,
+        timer: x.timer
+    })
+    .then(()=>{
+        window.location = `/${x.ruta}`;
+    })
+  </script>
+</html>
